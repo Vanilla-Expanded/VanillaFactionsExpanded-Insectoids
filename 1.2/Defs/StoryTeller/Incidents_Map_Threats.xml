@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <IncidentDef>
+		<defName>VFEI_InfestedSmallShipPartDrop</defName>
+		<label>infested chunk crash</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFEI.IncidentWorker_InfestedPartDropSmall</workerClass>
+		<letterLabel>Infested chunk crash</letterLabel>
+		<letterText>A number of small chunks of an ancient ship has crashed nearby. \n They seem to be infested with an organic mass. Bizarre insect chittering can be heard within the hull. \n Destroy them as soon as possible.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>1.6</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<minDifficulty>1</minDifficulty>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>800</minThreatPoints>
+		<earliestDay>10</earliestDay>
+	</IncidentDef>
+
+	<IncidentDef>
+		<defName>VFEI_InfestedShipPartDrop</defName>
+		<label>infested ship crash</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFEI.IncidentWorker_InfestedCrashedShipPart</workerClass>
+		<letterLabel>Infested ship crash</letterLabel>
+		<letterText>A large piece of an ancient ship has crashed nearby.\n It seems to be infested with an organic mass. Bizarre insect chittering can be heard within the hull.\n Destroy it as soon as possible.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>1.2</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<minDifficulty>1</minDifficulty>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>1000</minThreatPoints>
+		<earliestDay>12</earliestDay>
+	</IncidentDef>
+
+	<IncidentDef>
+		<defName>VFEI_InfestedShipModuleDrop</defName>
+		<label>infested ship module crash</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFEI.IncidentWorker_InfestedCrashedShipModule</workerClass>
+		<letterLabel>infested ship module crash</letterLabel>
+		<letterText>A mysterious segment of a long destroyed spaceship has crashed nearby.\n It seems to be completely covered in biomass and lumps of insectoid jelly. It is fairly certain that this old wreckage may contain ancient dangers.\n Destroy it as soon as possible.</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>0.8</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<minDifficulty>1</minDifficulty>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>1200</minThreatPoints>
+		<earliestDay>15</earliestDay>
+	</IncidentDef>
+
+	<IncidentDef>
+		<defName>VFEI_GiantInfestation</defName>
+		<label>large infestation</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFEI.Events.IncidentWorker_GiantInfestation</workerClass>
+		<letterLabel>Large Infestation</letterLabel>
+		<letterText>Giant insects are tunneling towards you! They will break through in a few seconds and plant hives.\n\nThe hives will spawn more insects and more hives.\n\nIf you don't want the insects to infest the whole area, destroy the hives. But beware - the bugs will defend their home.\n\nThis infestation seem to be pretty large, and led by a queen!</letterText>
+		<letterDef>ThreatBig</letterDef>
+		<baseChance>2</baseChance>
+		<minRefireDays>30</minRefireDays>
+		<pointsScaleable>true</pointsScaleable>
+		<minThreatPoints>600</minThreatPoints>
+		<earliestDay>25</earliestDay>
+		<tale>Infestation</tale>
+	</IncidentDef>
+
+	<IncidentDef>
+		<defName>VFEI_FirstInsectoidRaid</defName>
+		<label>raid</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFEI.Events.IncidentWorker_FirstRaid</workerClass>
+		<baseChance>0</baseChance>
+		<pointsScaleable>true</pointsScaleable>
+	</IncidentDef>
+</Defs>

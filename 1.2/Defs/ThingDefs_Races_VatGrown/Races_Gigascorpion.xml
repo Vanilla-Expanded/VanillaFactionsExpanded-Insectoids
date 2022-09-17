@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<ThingDef ParentName="BaseInsect">
+		<defName>VFEI_VatGrownGigascorpion</defName>
+		<label>Vat-grown gigascorpion</label>
+
+		<description>A car-sized creature consisting almost entirely of muscle, thick chitin plating, claws and a stinger. This insectoid is fast, agile, and capable of inflicting venomous stings to its foes. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.</description>
+		<statBases>
+			<MoveSpeed>4.00</MoveSpeed>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<MarketValue>500</MarketValue>
+			<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+		</statBases>
+		<tools>
+			<li>
+				<label>left pincer</label>
+				<cooldownTime>1.5</cooldownTime>
+				<power>15</power>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<linkedBodyPartsGroup>VFEI_PincerAttackTool</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>right pincer</label>
+				<cooldownTime>1.5</cooldownTime>
+				<power>15</power>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<linkedBodyPartsGroup>VFEI_PincerAttackTool</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<capacities>
+					<li>VFEI_ToxicSting</li>
+				</capacities>
+				<cooldownTime>2</cooldownTime>
+				<power>7</power>
+				<linkedBodyPartsGroup>VFEI_Sting</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.1</chanceFactor>
+			</li>
+
+		</tools>
+
+		<race>
+
+			<body>VFEI_ScorpionLike</body>
+			<herdAnimal>false</herdAnimal>
+			<predator>true</predator>
+			<baseBodySize>2.50</baseBodySize>
+			<baseHungerRate>1.0</baseHungerRate>
+			<baseHealthScale>2.0</baseHealthScale>     
+
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<foodType>CarnivoreAnimal, AnimalProduct</foodType>
+			<wildness>0.9</wildness>
+			<hasGenders>false</hasGenders>
+			<manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(2, 1.7)</li>
+					<li>(3, 0.7)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeExpectancy>2</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.14</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.4</minAge>
+					<soundWounded>Pawn_Spelopede_Pain</soundWounded>
+					<soundDeath>Pawn_Spelopede_Death</soundDeath>
+					<soundCall>Pawn_Spelopede_Call</soundCall>
+					<soundAngry>Pawn_Spelopede_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalInsect</li>
+		</tradeTags>
+		<butcherProducts>
+			<VFEI_Chitin>10</VFEI_Chitin>
+		</butcherProducts>
+	</ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VFEI_VatGrownGigascorpion</defName>
+		<race>VFEI_VatGrownGigascorpion</race>
+		<label>Vat-grown gigascorpion</label>
+		<combatPower>350</combatPower>
+		<ecoSystemWeight>0.3</ecoSystemWeight>
+		<canArriveManhunter>false</canArriveManhunter>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_VatGrownGigascorpion</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_Dessicated_VatGrownGigascorpion</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_VatGrownGigascorpion</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_Dessicated_VatGrownGigascorpion</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_VatGrownGigascorpion</texPath>
+					<drawSize>2.75</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownGigascorpion/VFEI_Dessicated_VatGrownGigascorpion</texPath>
+					<drawSize>2.75</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

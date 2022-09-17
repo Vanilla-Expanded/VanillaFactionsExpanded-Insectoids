@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ============================================================ -->
+
+	<ThingDef ParentName="BaseInsect">
+		<defName>VFEI_VatgrownRoyalLarva</defName>
+		<label>Vat-grown royal larva</label>
+		<description>A large bio-engineered larva containing a sack of royal insectoid jelly. Its natural purpose is to become food for other insectoid castes, therefore, it doesn’t serve any important role in their society. When butchered, the royal jelly sack can be safely prepared for consumption. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.</description>
+		<statBases>
+			<MoveSpeed>1</MoveSpeed>			
+			<ComfyTemperatureMin>0</ComfyTemperatureMin>
+			<MarketValue>50</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+
+		</statBases>
+		<tools>
+			<li>
+				<label>mandibles</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.1</chanceFactor>
+			</li>
+
+		</tools>
+
+		<race>
+
+			<body>BeetleLike</body>
+			<baseBodySize>0.1</baseBodySize>
+			<baseHungerRate>0.03</baseHungerRate>
+			<baseHealthScale>0.2</baseHealthScale>
+			<hasGenders>false</hasGenders>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+
+			<wildness>0.65</wildness>
+			<manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+			
+			<lifeExpectancy>1</lifeExpectancy>
+			<lifeStageAges>
+				
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<butcherProducts>
+			<VFEI_RoyalInsectJelly>20</VFEI_RoyalInsectJelly>
+		</butcherProducts>
+		<tradeTags>
+			
+			<li>AnimalInsect</li>
+		</tradeTags>
+	</ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VFEI_VatgrownRoyalLarva</defName>
+		<label>Vat-grown royal larva</label>		
+		<race>VFEI_VatgrownRoyalLarva</race>
+		<combatPower>10</combatPower>
+		<ecoSystemWeight>0.2</ecoSystemWeight>
+		<canArriveManhunter>false</canArriveManhunter>
+		<lifeStages>
+			
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownRoyalLarva/VFEI_VatGrownRoyalLarva</texPath>
+					<drawSize>1.5</drawSize>
+					
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownRoyalLarva/VFEI_Dessicated_VatGrownRoyalLarva</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

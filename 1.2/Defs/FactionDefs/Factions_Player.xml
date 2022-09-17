@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>VFE_PlayerOutpost</defName>
+    <label>New Squad</label>
+    <description>A small squad of mercenaries, ready for combat.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>VFE_Mercenary</basicMemberKind>
+    <pawnSingular>mercenary</pawnSingular>
+    <pawnsPlural>mercenaries</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Pirate</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <factionIconPath>World/WorldObjects/Expanding/VFE_Outpost</factionIconPath>
+    <playerInitialSettlementNameMaker>NamerSettlementPirate</playerInitialSettlementNameMaker>
+    <factionNameMaker>NamerFactionPirate</factionNameMaker>
+    <settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
+    <geneticVariance>1</geneticVariance>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+	  <li>MercenaryStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+    <hairTags>
+      <li>Urban</li>
+	  <li>Pirate</li>
+    </hairTags>
+  </FactionDef>
+
+</Defs>

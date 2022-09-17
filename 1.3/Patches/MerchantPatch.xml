@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TraderKindDef[defName = "Caravan_Outlander_Exotic"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VFEI_DroneGenome</thingDef>
+				<countRange>1~8</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VFEI_WarriorGenome</thingDef>
+				<countRange>1~8</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>VFEI_RoyalGenome</thingDef>
+				<countRange>1~8</countRange>
+			</li>
+
+		</value>
+	</Operation>
+
+
+	
+
+
+
+</Patch>

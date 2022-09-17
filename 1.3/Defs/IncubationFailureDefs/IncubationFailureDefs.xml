@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_Monstrosity</defName>
+		<creatureDef>VFEI_VatGrownMonstrosity</creatureDef>    
+		<commonality>3.0</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+	
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_Dementia</defName>
+		<hediffDef>Dementia</hediffDef>    
+		<commonality>0.5</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+	
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_BadBack</defName>
+		<hediffDef>BadBack</hediffDef>    
+		<commonality>0.5</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+	
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_Frail</defName>
+		<hediffDef>Frail</hediffDef>    
+		<commonality>0.5</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_Animal_Plague</defName>
+		<hediffDef>Animal_Plague</hediffDef>    
+		<commonality>0.5</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+	
+	<InsectoidBioengineering.IncubationFailureDef>
+		<defName>VFEI_IncubationFailure_Death</defName>
+		<justKill>true</justKill>    
+		<commonality>0.25</commonality>		
+	</InsectoidBioengineering.IncubationFailureDef>	
+
+</Defs>

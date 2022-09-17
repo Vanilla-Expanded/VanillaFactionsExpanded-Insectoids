@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ============================================================ -->
+
+	<ThingDef ParentName="BaseInsect">
+		<defName>VFEI_VatGrownMegacricket</defName>
+		<label>Vat-grown megacricket</label>
+		<description>A medium-sized bioengineered combination of a cricket and a woodworm, megacrickets  nourish themselves on trees and vegetation. They are also capable of supporting the hive by digging out crops for easier harvest. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.\n\nNOTE: The Megacricket needs to be trained in "Guard" to be able to help with harvests.</description>
+		<statBases>
+			<MoveSpeed>5</MoveSpeed>
+			<ComfyTemperatureMin>-25</ComfyTemperatureMin>
+			<MarketValue>175</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+		</statBases>
+		<tools>
+			<li>
+				<label>mandibles</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+
+
+
+		<race>
+			<thinkTreeMain>VFEI_AnimalHarvester</thinkTreeMain>
+			<thinkTreeConstant>VFEI_AnimalHarvesterConstant</thinkTreeConstant>
+
+			<body>BeetleLike</body>
+			<baseHungerRate>1</baseHungerRate>
+			<baseBodySize>1.25</baseBodySize>
+			<baseHealthScale>1.6</baseHealthScale>
+			<hasGenders>false</hasGenders>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<foodType>DendrovoreAnimal,VegetarianRoughAnimal</foodType>
+
+			<wildness>0.8</wildness>
+			<manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+
+			<lifeExpectancy>3</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>EusocialInsectLarva</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectJuvenile</def>
+					<minAge>0.05</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Spelopede_Pain</soundWounded>
+					<soundDeath>Pawn_Spelopede_Death</soundDeath>
+					<soundCall>Pawn_Spelopede_Call</soundCall>
+					<soundAngry>Pawn_Spelopede_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+
+			<li>AnimalInsect</li>
+		</tradeTags>
+		<butcherProducts>
+			<VFEI_RoyalInsectJelly>5</VFEI_RoyalInsectJelly>
+			<VFEI_Chitin>5</VFEI_Chitin>
+		</butcherProducts>
+	</ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VFEI_VatGrownMegacricket</defName>
+		<label>Vat-grown megacricket</label>		
+		<race>VFEI_VatGrownMegacricket</race>
+		<combatPower>80</combatPower>
+		<ecoSystemWeight>0.2</ecoSystemWeight>
+		<canArriveManhunter>false</canArriveManhunter>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_VatGrownMegacricket</texPath>
+					<drawSize>1</drawSize>
+
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_Dessicated_VatGrownMegacricket</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_VatGrownMegacricket</texPath>
+					<drawSize>1.75</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_Dessicated_VatGrownMegacricket</texPath>
+					<drawSize>1.75</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_VatGrownMegacricket</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.5, 0.37)</volume>
+						<offset>(0,0,-0.15)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMegacricket/VFEI_Dessicated_VatGrownMegacricket</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+</Defs>

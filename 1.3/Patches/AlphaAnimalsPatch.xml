@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<operations>
+
+
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+
+						<ThingDef ParentName="VFEI_GeneticsBase">
+							<defName>VFEI_BlackHiveGenome</defName>
+							<label>black hive genetic material</label>
+							<description>A vial of genetic material extracted from an insectoid from the Black Hive.\n\nBlack hive genetic material is not viable in all combinations, and it won't combine with Royal Genome at all.</description>   
+							<statBases>    
+							  <MarketValue>500</MarketValue>     
+							</statBases>
+							<graphicData>
+								<texPath>Things/Item/GenomeIcons/VFEI_BlackHiveGenome</texPath>
+							</graphicData>    
+						</ThingDef>
+
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs/InsectoidBioengineering.AcceptedGenomesDef[defName="VFEI_AcceptedGenomes"]/genomes</xpath>
+					<value>
+						<li>VFEI_BlackHiveGenome</li>
+
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<InsectoidBioengineering.InsectoidCombinationDef>
+							<defName>VFEI_CombinationBlackHive1</defName>
+							<genomes>
+								<li>VFEI_WarriorGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_WarriorGenome</li>
+							</genomes>	
+							<result>
+								<li>AA_BlackSpider</li>
+							</result>				
+						</InsectoidBioengineering.InsectoidCombinationDef>
+
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<InsectoidBioengineering.InsectoidCombinationDef>
+							<defName>VFEI_CombinationBlackHive2</defName>
+							<genomes>
+								<li>VFEI_DroneGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_DroneGenome</li>
+							</genomes>	
+							<result>
+								<li>AA_BlackScarab</li>
+							</result>				
+						</InsectoidBioengineering.InsectoidCombinationDef>
+
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<InsectoidBioengineering.InsectoidCombinationDef>
+							<defName>VFEI_CombinationBlackHive3</defName>
+							<genomes>
+								<li>VFEI_WarriorGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_DroneGenome</li>
+							</genomes>	
+							<result>
+								<li>AA_BlackSpelopede</li>
+							</result>				
+						</InsectoidBioengineering.InsectoidCombinationDef>
+
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<InsectoidBioengineering.InsectoidCombinationDef>
+							<defName>VFEI_CombinationBlackHive4</defName>
+							<genomes>
+								<li>VFEI_WarriorGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+							</genomes>	
+							<result>
+								<li>AA_MegaLouse</li>
+							</result>				
+						</InsectoidBioengineering.InsectoidCombinationDef>
+
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<InsectoidBioengineering.InsectoidCombinationDef>
+							<defName>VFEI_CombinationBlackHive5</defName>
+							<genomes>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+								<li>VFEI_BlackHiveGenome</li>
+							</genomes>	
+							<result>
+								<li>AA_MammothWorm</li>
+							</result>				
+						</InsectoidBioengineering.InsectoidCombinationDef>
+
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs/TraderKindDef[defName="VFEI_Orbital_BioEngineeringSupplier"]/stockGenerators</xpath>
+					<value>
+						<li Class="StockGenerator_SingleDef">
+							<thingDef>VFEI_BlackHiveGenome</thingDef>
+							<countRange>1~8</countRange>
+						  </li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs/TraderKindDef[defName="Caravan_Outlander_Exotic"]/stockGenerators</xpath>
+					<value>
+						<li Class="StockGenerator_SingleDef">
+							<thingDef>VFEI_BlackHiveGenome</thingDef>
+							<countRange>1~8</countRange>
+						  </li>
+					</value>
+				</li>
+				
+				
+				
+				
+			
+
+
+
+
+
+
+
+			</operations>
+		</match>
+	</Operation>
+
+
+</Patch>
+

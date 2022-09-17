@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="SkyfallerBase">
+        <defName>VFEI_TeleporterTraveler</defName>
+        <label>teleporter</label>
+        <thingClass>VFEI.WorldTeleporter</thingClass>
+        <graphicData>
+            <texPath>Things/Special/Empty</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>1.9</drawSize>
+        </graphicData>
+        <skyfaller>
+            <movementType>Decelerate</movementType>
+            <reversed>true</reversed>
+            <shadowSize>(0, 0)</shadowSize>
+            <ticksToImpactRange>
+                <min>-40</min>
+                <max>-15</max>
+            </ticksToImpactRange>
+            <speed>100.0</speed>
+        </skyfaller>
+    </ThingDef>
+
+    <WorldObjectDef>
+        <defName>VFEI_TTraveling</defName>
+        <label>teleporter beam</label>
+        <description>Teleporter beam.</description>
+        <worldObjectClass>VFEI.TravelingTeleporter</worldObjectClass>
+        <texture>Things/Special/Empty</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>Things/Special/Empty</expandingIconTexture>
+        <expandingIconPriority>60</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
+    </WorldObjectDef>
+</Defs>

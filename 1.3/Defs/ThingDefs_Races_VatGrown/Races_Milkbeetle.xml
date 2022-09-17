@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BaseInsect">
+    <defName>VFEI_VatGrownMilkbeetle</defName>
+    <label>Vat-grown milkbeetle</label>
+    <description>A large bio-engineered livestock, milkbeetles produce thick insectoid milk in a large sac on its back. Whilst it is moderately armoured, the chitin plates can be safely removed as they quickly grow back. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased. The Milkbeetle is considered a farm animal and needs to be penned.</description>
+    <statBases>
+      <MoveSpeed>1.8</MoveSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+      <MarketValue>350</MarketValue>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+    </statBases>
+    <tools>
+      <li>
+        <label>mandibles</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2.6</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_Milkable">
+        <milkDef>VFEI_InsectMilk</milkDef>
+        <milkIntervalDays>2</milkIntervalDays>
+        <milkAmount>36</milkAmount>
+        <milkFemaleOnly>false</milkFemaleOnly>
+      </li>
+      <li Class="CompProperties_Shearable">
+        <woolDef>VFEI_Chitin</woolDef>
+        <shearIntervalDays>5</shearIntervalDays>
+        <woolAmount>15</woolAmount>
+      </li>
+    </comps>
+    <race>
+      <body>BeetleLike</body>
+      <baseHungerRate>0.15</baseHungerRate>
+      <baseBodySize>2</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <foodType>OmnivoreAnimal, AnimalProduct</foodType>
+      <hasGenders>false</hasGenders>
+	  <trainability>None</trainability>
+	  <roamMtbDays>5</roamMtbDays>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <wildness>0.55</wildness>
+      <lifeExpectancy>3</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectLarva</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectJuvenile</def>
+          <minAge>0.03</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.2</minAge>
+          <soundWounded>Pawn_BigInsect_Pain</soundWounded>
+          <soundDeath>Pawn_BigInsect_Death</soundDeath>
+          <soundCall>Pawn_BigInsect_Call</soundCall>
+          <soundAngry>Pawn_BigInsect_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <tradeTags>
+      <li>AnimalInsect</li>
+    </tradeTags>
+    <butcherProducts>
+      <VFEI_Chitin>5</VFEI_Chitin>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>VFEI_VatGrownMilkbeetle</defName>
+    <label>Vat-grown milkbeetle</label>
+    <race>VFEI_VatGrownMilkbeetle</race>
+    <combatPower>100</combatPower>
+    <canArriveManhunter>false</canArriveManhunter>
+    <ecoSystemWeight>0.50</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_VatGrownMilkbeetle</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_Dessicated_VatGrownMilkbeetle</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_VatGrownMilkbeetle</texPath>
+          <drawSize>2.0</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_Dessicated_VatGrownMilkbeetle</texPath>
+          <drawSize>2.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_VatGrownMilkbeetle</texPath>
+          <drawSize>3</drawSize>
+          <shadowData>
+            <volume>(0.5, 0.7, 0.43)</volume>
+            <offset>(0,0,-0.1)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMilkbeetle/VFEI_Dessicated_VatGrownMilkbeetle</texPath>
+          <drawSize>3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>

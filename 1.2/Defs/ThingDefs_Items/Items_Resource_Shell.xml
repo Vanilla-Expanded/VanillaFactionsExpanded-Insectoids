@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Psychic Warhead -->
+  <ThingDef ParentName="ShellBase">
+    <defName>VFEI_Shell_PsychicWarhead</defName>
+    <label>psychic warhead</label>
+    <description>An archotech warhead from a long forgotten era. Upon detonation, it releases a strong psychic drone, sending all animals and humanoids in its reach into a berserk rage. Can be fired from mortars. Explodes when damaged.</description>
+    <graphicData>
+      <texPath>Things/Item/VFEI_PsychicWarhead</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>VFEI_PsychicNoDamage</explosiveDamageType>
+        <explosiveExpandPerStackcount>1</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>
+          <min>30</min>
+          <max>60</max>
+        </wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>VFEI_Bullet_Shell_PsychicWarhead</projectileWhenLoaded>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFEI_Bullet_Shell_PsychicWarhead</defName>
+    <label>archotech warhead shell</label>
+    <graphicData>
+      <texPath>Things/Projectile/ShellArchotechInsanity</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>VFEI.Projectile_Psychic</thingClass>
+    <projectile>
+      <damageDef>VFEI_PsychicNoDamage</damageDef>
+      <speed>41</speed>
+      <explosionRadius>5</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+</Defs>

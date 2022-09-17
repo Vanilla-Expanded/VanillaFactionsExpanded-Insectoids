@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>VFEI_RoyalJellyWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>VFEI_RoyalJellyAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <visible>true</visible>
+      </li>
+      <li>
+        <label>royal jelly withdrawal</label>
+        <description>I never thought I'd want that juicy jelly of an insectoid so much.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VFEI_SeenInsectoidQueen</defName>
+    <durationDays>3</durationDays>
+    <stages>
+      <li>
+        <label>seen an insectoid queen</label>
+        <description>This insectoid queen is disgusting. It's shivering my body and soul.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VFEI_SeenCuterpillar</defName>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>seen a cuterpillar</label>
+        <description>That small insectoid always brings a smile to my face.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VFEI_AteRoyalJelly</defName>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate royal jelly</label>
+        <description>I ate royal jelly, it's delicious!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VFEI_Sticky</defName>
+    <workerClass>VFEI.ThoughtWorkers.ThoughtWorker_Sticky</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>sticky</label>
+        <description>I'm sticky, and I dislike it.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

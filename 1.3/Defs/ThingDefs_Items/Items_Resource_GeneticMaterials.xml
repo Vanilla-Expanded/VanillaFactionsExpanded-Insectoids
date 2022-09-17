@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Genetic Material ====================-->
+
+  <ThingDef Name="VFEI_GeneticsBase" ParentName="ResourceBase" Abstract="True">
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <statBases>
+      <MaxHitPoints>15</MaxHitPoints>
+      <MarketValue>100</MarketValue>
+      <Mass>0.10</Mass>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>6</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tickerType>Rare</tickerType>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>2</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="VFEI_GeneticsBase">
+    <defName>VFEI_DroneGenome</defName>
+    <label>drone genetic material</label>
+    <statBases>
+      <MarketValue>100</MarketValue>
+    </statBases>
+    <description>Genetic material of several different species of working animals and drones, mixed into one payload of DNA.\n\nWhen administered to a human being, this genome can have a random effect.</description>
+    <graphicData>
+      <texPath>Things/Item/GenomeIcons/VFEI_DroneGenome</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="VFEI_GeneticsBase">
+    <defName>VFEI_WarriorGenome</defName>
+    <label>warrior genetic material</label>
+    <statBases>
+      <MarketValue>150</MarketValue>
+    </statBases>
+    <description>Genetic material of several different species of warrior caste insects and predators, mixed into one payload of DNA.\n\nWhen administered to a human being, this genome can have a random effect.</description>
+    <graphicData>
+      <texPath>Things/Item/GenomeIcons/VFEI_WarriorGenome</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="VFEI_GeneticsBase">
+    <defName>VFEI_RoyalGenome</defName>
+    <label>royal genetic material</label>
+    <statBases>
+      <MarketValue>200</MarketValue>
+    </statBases>
+    <description>Genetic material of several different species of royal insectoids and queens, mixed into one payload of DNA.\n\nWhen administered to a human being, this genome can have a random effect.</description>
+    <graphicData>
+      <texPath>Things/Item/GenomeIcons/VFEI_RoyalGenome</texPath>
+    </graphicData>
+  </ThingDef>
+</Defs>

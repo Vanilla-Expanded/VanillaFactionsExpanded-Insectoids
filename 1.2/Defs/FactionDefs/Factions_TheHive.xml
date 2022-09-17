@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <FactionDef>
+    <defName>VFEI_Insect</defName>
+    <label>insect hive</label>
+    <pawnSingular>insect</pawnSingular>
+    <pawnsPlural>insects</pawnsPlural>
+    <settlementGenerationWeight>1</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <canSiege>false</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <description>A result of a galaxy wide experiment gone wrong, this monstrous hive-mind has made this planet their home. Divided into castes, their society relies on the giant queen.\n\nThese insectoids are not interested in diplomacy. They will try to eliminate anything that they perceive to be a threat.</description>
+    <factionIconPath>World/InsectoidFaction/Nest</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <allowedArrivalTemperatureRange>0~45</allowedArrivalTemperatureRange>
+    <factionNameMaker>VFEI_NamerFactionInsect</factionNameMaker>
+    <settlementNameMaker>VFEI_NamerSettlementInsectoid</settlementNameMaker>
+    <techLevel>Animal</techLevel>
+    <raidLootValueFromPointsCurve>
+      <points>
+        <li>(35,     15)</li>
+        <li>(100,   120)</li>
+        <li>(1000,  500)</li>
+        <li>(2000,  800)</li>
+        <li>(4000, 1000)</li>
+      </points>
+    </raidLootValueFromPointsCurve>
+    <humanlikeFaction>false</humanlikeFaction>
+    <hidden>false</hidden>
+    <autoFlee>false</autoFlee>
+    <canUseAvoidGrid>true</canUseAvoidGrid>
+    <earliestRaidDays>20</earliestRaidDays>
+    <permanentEnemy>true</permanentEnemy>
+    <colorSpectrum>
+      <li>(0.58, 0.47, 0.35)</li>
+      <li>(0.75, 0.40, 0.40)</li>
+    </colorSpectrum>
+    <hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(400,200)</li>
+        <li>(900,300)</li>
+        <li>(100000,10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <!-- All types-->
+        <kindDef>Combat</kindDef>
+        <commonality>100</commonality>
+        <options>
+          <Megascarab>30</Megascarab>
+          <Spelopede>20</Spelopede>
+          <Megaspider>20</Megaspider>
+          <VFEI_Insectoid_Megapede>20</VFEI_Insectoid_Megapede>
+          <VFEI_Insectoid_Gigalocust>10</VFEI_Insectoid_Gigalocust>
+          <VFEI_Insectoid_RoyalMegaspider>5</VFEI_Insectoid_RoyalMegaspider>
+        </options>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <Megascarab>30</Megascarab>
+          <Spelopede>20</Spelopede>
+          <Megaspider>20</Megaspider>
+          <VFEI_Insectoid_Megapede>20</VFEI_Insectoid_Megapede>
+          <VFEI_Insectoid_Gigalocust>10</VFEI_Insectoid_Gigalocust>
+          <VFEI_Insectoid_RoyalMegaspider>20</VFEI_Insectoid_RoyalMegaspider>
+        </options>
+      </li>
+    </pawnGroupMakers>
+    <modExtensions>
+      <li Class="VFECore.ExcludeFromQuestsExtension" />
+    </modExtensions>
+  </FactionDef>
+
+</Defs>

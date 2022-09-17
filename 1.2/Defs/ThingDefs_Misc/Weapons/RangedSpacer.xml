@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>VFE_Gun_Plasmacutter</defName>
+    <label>plasmacutter</label>
+    <description>A mining pistol with metal-cored projectiles wrapped in plasma, held in place by an energy field. Targets are both sliced by the metal core, as well as burned or ignited by plasma coating. This weapon has a chance to deal critical hits, with a chance to cut the limb straight off.</description>
+    <techLevel>Ultra</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasmacutter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>2</Mass>
+      <AccuracyTouch>0.84</AccuracyTouch>
+      <AccuracyShort>0.81</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+      <RangedWeapon_Cooldown>2.30</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedStatOffsets>
+      <MiningSpeed>0.33</MiningSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Plasteel>150</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>UltratechGun</li>
+    </weaponTags>
+    <recipeMaker Inherit="False" />
+    <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_Plasmacutter</defaultProjectile>
+        <warmupTime>1.4</warmupTime>
+        <range>12.9</range>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>VFE_PlasmaShot_Cutter</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Plasmacutter</defName>
+    <label>plasmacutter shot</label>
+    <thingClass>VFEI.Other.PlasmaCutterBullet</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasma_Cutter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>VFE_Gun_Plasmapiercer</defName>
+    <label>plasmapiercer</label>
+    <description>A heavy rifle capable of shooting metal-cored nails covered in plasma and held in place by an energy field. These bolts are excellent at stopping larger targets, capable of knocking most human-sized enemies to the ground.</description>
+    <techLevel>Ultra</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasmapiercer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+      <Mass>4</Mass>
+      <AccuracyTouch>0.34</AccuracyTouch>
+      <AccuracyShort>0.41</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.57</AccuracyLong>
+      <RangedWeapon_Cooldown>2.45</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Plasteel>150</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>UltratechGun</li>
+    </weaponTags>
+    <tradeability>Sellable</tradeability>
+    <recipeMaker Inherit="False" />
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_Plasmapiercer</defaultProjectile>
+        <warmupTime>1.2</warmupTime>
+        <range>24.9</range>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>VFE_PlasmaShot_Piercer</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Plasmapiercer</defName>
+    <label>plasmapiercer shot</label>
+    <thingClass>VFEI.Other.PlasmapiercerBullet</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasma_Nail</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>26</damageAmountBase>
+      <armorPenetrationBase>0.8</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>VFE_Gun_PlasmabeamRifle</defName>
+    <label>plasmabeam rifle</label>
+    <description>A long range rifle using metal-cored pellets covered in superheated gas, held in place by an energy field. Shots fired from this rifle burn everything they hit, but due to how unstable they are, it’s very difficult to fire it accurately over long distances.</description>
+    <techLevel>Ultra</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Weapons/PlasmabeamRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+    <statBases>
+      <MarketValue>2500</MarketValue>
+      <Mass>6</Mass>
+      <AccuracyTouch>0.44</AccuracyTouch>
+      <AccuracyShort>0.54</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.57</AccuracyLong>
+      <RangedWeapon_Cooldown>3.90</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>50</equippedAngleOffset>
+    <costList>
+      <Plasteel>150</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <tradeability>Sellable</tradeability>
+    <weaponTags>
+      <li>UltratechGun</li>
+    </weaponTags>
+    <recipeMaker Inherit="False" />
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_PlasmaBeam</defaultProjectile>
+        <warmupTime>1.45</warmupTime>
+        <range>35.9</range>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <burstShotCount>16</burstShotCount>
+        <soundCast>VFE_PlasmaShot_Beam</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PlasmaBeam</defName>
+    <label>plasma beam</label>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasma_Beam</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>VFE_Gun_PlasmaScattergun</defName>
+    <label>plasma scattergun</label>
+    <description>A close-quarters scattergun firing shards of molten metal, kept in this state thanks to superheated gas wrapped around their cores. Inflicts a large number of burn wounds to enemies, most often eliminating threats with a single shot. Due to the unstable nature of the projectiles, it has a very short range.</description>
+    <techLevel>Ultra</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Weapons/PlasmaScattergun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+      <Mass>4</Mass>
+      <AccuracyTouch>0.34</AccuracyTouch>
+      <AccuracyShort>0.44</AccuracyShort>
+      <AccuracyMedium>0.47</AccuracyMedium>
+      <AccuracyLong>0.47</AccuracyLong>
+      <RangedWeapon_Cooldown>1.80</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Plasteel>150</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <tradeability>Sellable</tradeability>
+    <weaponTags>
+      <li>UltratechGun</li>
+    </weaponTags>
+    <recipeMaker Inherit="False" />
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_PlasmaScatter</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>15.9</range>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>5</burstShotCount>
+        <soundCast>VFE_PlasmaShot_Scattergun</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_PlasmaScatter</defName>
+    <label>plasma scatter shot</label>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasma_Scatter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>VFE_Plasmasaw</defName>
+    <label>plasmasaw</label>
+    <description>A neo-industrial metal-cored saw with a cutting edge made out of plasma, held in place by an energy field. Targets are both sliced by the metal core, as well as burned or ignited by the plasma chain.</description>
+    <graphicData>
+      <texPath>Things/Item/Weapons/Plasmasaw</texPath>
+      <shaderType>TransparentPostLight</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+    <meleeHitSound>VFE_Chainsaw_Attack</meleeHitSound>
+    <techLevel>Ultra</techLevel>
+    <weaponTags Inherit="False">
+      <li>UltratechMelee</li>
+    </weaponTags>
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>1.4</Mass>
+    </statBases>
+    <recipeMaker Inherit="False" />
+    <equippedAngleOffset>50</equippedAngleOffset>
+    <!--<comps>
+      <li Class="VFEI.CompProperties_SoundLoop">
+        <soundToPlay>VFE_ChainsawLoop</soundToPlay>
+      </li>
+    </comps>-->
+    <tools>
+      <li>
+        <label>plasma chain</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>0.1</cooldownTime>
+        <extraMeleeDamages>
+          <li>
+            <def>Flame</def>
+            <amount>1</amount>
+            <chance>0.3</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+    <thingSetMakerTags>
+      <li>RewardSpecial</li>
+    </thingSetMakerTags>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+
+</Defs>

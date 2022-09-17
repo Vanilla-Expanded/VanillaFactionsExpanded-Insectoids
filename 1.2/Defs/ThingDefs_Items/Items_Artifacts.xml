@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Psychic Pacifier -->
+  <ThingDef ParentName="ArtifactBase">
+    <defName>VFEI_Artifacts_PsychicPacifier</defName>
+    <label>psychic pacifier</label>
+    <description>One-use artifact that directs psychic pacifying blast towards a character, making them join your faction. There is a large risk of brain damage. It works at long distances, and through walls.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/PsychicPacifier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <Mass>3</Mass>
+      <Beauty>-2</Beauty>
+      <Flammability>0.4</Flammability>
+      <MarketValue>1500</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <thingCategories Inherit="False">
+      <li>Artifacts</li>
+    </thingCategories>
+    <tradeTags Inherit="False">
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardSpecial</li>
+      <li>SingleUseWeapon</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Targetable">
+        <compClass>VFEI.CompProperties_TargetableHumanOnly</compClass>
+        <psychicSensitiveTargetsOnly>true</psychicSensitiveTargetsOnly>
+      </li>
+      <li>
+        <compClass>VFEI.CompTargetEffect_Recruit</compClass>
+      </li>
+      <li Class="CompProperties_TargetEffect_BrainDamageChance">
+        <brainDamageChance>0.5</brainDamageChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Psychic Animal Tamer -->
+  <ThingDef ParentName="ArtifactBase">
+    <defName>VFEI_Artifacts_PsychicAnimalTamer</defName>
+    <label>psychic animal tamer</label>
+    <description>A one-use psychic animal tamer. It overwhelms the target's mind with terrifying mental persuasion, dropping it into a transcendental state, in which it gets trusting and keen with you. There is a risk of brain damage. It works at long distances, and through walls.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/PsychicAnimalTamer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <Mass>2.5</Mass>
+      <Beauty>-5</Beauty>
+      <Flammability>0.4</Flammability>
+      <MarketValue>1500</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <thingCategories Inherit="False">
+      <li>Artifacts</li>
+    </thingCategories>
+    <tradeTags Inherit="False">
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardSpecial</li>
+      <li>SingleUseWeapon</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Targetable">
+        <compClass>VFEI.CompProperties_TargetableAnimalOnly</compClass>
+        <psychicSensitiveTargetsOnly>true</psychicSensitiveTargetsOnly>
+      </li>
+      <li>
+        <compClass>VFEI.CompTargetEffect_Tame</compClass>
+      </li>
+      <li Class="CompProperties_TargetEffect_BrainDamageChance">
+        <brainDamageChance>0.3</brainDamageChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Archotech Eraser -->
+  <ThingDef ParentName="ArtifactBase">
+    <defName>VFEI_Artifacts_ArchotechEraser</defName>
+    <label>archotech eraser</label>
+    <description>One-use artifact that utilises a vanometric core to erase everything in a radius of 10 from existence. Needs to be manually triggered.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/ArchotechEraser</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>4</Mass>
+      <Beauty>-5</Beauty>
+      <Flammability>0.4</Flammability>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <specialDisplayRadius>5</specialDisplayRadius> <!-- range indicator, weapon of mass destruction -->
+    <thingCategories Inherit="False">
+      <li>Artifacts</li>
+    </thingCategories>
+    <tradeTags Inherit="False">
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardSpecial</li>
+      <li>SingleUseWeapon</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Targetable">
+        <compClass>VFEI.CompTargetable_ThingInRadius</compClass>
+        <doCameraShake>true</doCameraShake>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Archotech Teleporter -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>VFEI_Artifacts_ArchotechTeleporter</defName>
+    <label>archotech teleporter</label>
+    <description>One-use artifact which allows to transport up to 500 kg of mass from one place to any other place on the planet. Can't be used to give gift or raid other faction.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Artifact/ArchotechTeleporter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <Mass>5</Mass>
+      <Flammability>0.4</Flammability>
+      <MarketValue>800</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <thingCategories><li>Artifacts</li></thingCategories>
+    <tradeTags><li>Artifact</li></tradeTags>
+    <thingSetMakerTags><li>RewardSpecial</li></thingSetMakerTags>
+    <tickerType>Normal</tickerType>
+    <inspectorTabs><li>ITab_ContentsTransporter</li></inspectorTabs>
+    <!--<comps>
+      <li Class="CompProperties_Transporter">
+        <massCapacity>500</massCapacity>
+        <restEffectiveness>0.8</restEffectiveness>
+        <max1PerGroup>true</max1PerGroup>
+        <canChangeAssignedThingsAfterStarting>false</canChangeAssignedThingsAfterStarting>
+      </li>
+      <li Class="CompProperties_Launchable">
+        <requireFuel>false</requireFuel>
+        <skyfallerLeaving>VFEI_TeleporterTraveler</skyfallerLeaving>
+        <fixedLaunchDistanceMax>2000</fixedLaunchDistanceMax>
+      </li>
+      <li Class="VFEI.CompProperties_ArchotechTeleporter" />
+    </comps>-->
+  </ThingDef>
+
+</Defs>

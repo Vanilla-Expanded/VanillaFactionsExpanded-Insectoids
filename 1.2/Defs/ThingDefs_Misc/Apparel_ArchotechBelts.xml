@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Archotech Shield Belt -->
+  <ThingDef ParentName="ApparelBase">
+    <defName>VFEI_Apparel_ArchotechShieldBelt</defName>
+    <label>archotech shield belt</label>
+    <description>A single-person psychic shield device made by a superior AI, that covers the user with an impenetrable shield bubble. It will attempt to stop any rapidly-moving projectile or energy attack. It does nothing against melee attacks or shots from point-blank range. This advanced version has a larger capacity, but lacks any recharge mechanism. The incomparable shield strength makes it a valuable good for any type of soldier.</description>
+    <thingClass>VFEI.ArchotechShieldBelt</thingClass>
+    <techLevel>Archotech</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Artifact/ArchotechShieldBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Mass>4.5</Mass>
+      <WorkToMake>48000</WorkToMake>
+      <Flammability>0.2</Flammability>
+      <EnergyShieldEnergyMax>4.5</EnergyShieldEnergyMax>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <costList>
+      <ComponentSpacer>4</ComponentSpacer>  
+      <Steel>20</Steel>
+      <Uranium>50</Uranium>
+    </costList>
+    <thingCategories Inherit="False">
+      <li>Artifacts</li> <!-- Apparel -->
+	  <li>ApparelArmor</li>
+    </thingCategories>
+    <tradeTags Inherit="False">
+      <li>Artifact</li> <!-- ExoticMisc -->
+    </tradeTags>
+    <thingSetMakerTags Inherit="False">
+      <li>RewardSpecial</li>
+      <li>SingleUseWeapon</li>
+    </thingSetMakerTags>
+    <apparel>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>BeltDefense</li>
+      </tags>
+    </apparel>
+    <comps>
+      <li Class="VFEI.CompProperties_SaveBeltEnergy"/>
+    </comps>
+  </ThingDef>
+
+</Defs>

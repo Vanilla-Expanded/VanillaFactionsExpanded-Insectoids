@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ScenPartDef>
+		<defName>ScenPart_Settlement</defName>
+		<label>generate settlement</label>
+		<category>Misc</category>
+		<scenPartClass>ScenPart_GameStartDialog</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
+
+	<ScenPartDef>
+		<defName>ScenPart_PlayerPawnsArriveMethodEdge</defName>
+		<label>pawn arrive method</label>
+		<category>Fixed</category>
+		<scenPartClass>VFEI.Other.ScenPart_ArriveAtEdge</scenPartClass>
+		<maxUses>1</maxUses>
+	</ScenPartDef>
+
+	<ScenarioDef>
+		<defName>VFEI_MercenarySquad</defName>
+		<label>Mercenary Squad</label>
+		<description>The four of you approach an abandoned outpost, now crawling with all kinds of terrors. You can try and exterminate the hives and rebuild it, or leave and settle somewhere else.</description>
+		<scenario>
+			<name>Mercenaries</name>
+			<summary>A group of mercenaries surrounded by swarms of insectoids. Very Difficult.</summary>
+			<description>A simple mission down to the surface of a long forgotten planet went south. Your base has been overrun by creatures you have not seen before - giant insectoids, emerging in infinite numbers from their hives. Forced to escape, you approach a small outpost crawling with the insectoids that sent you on the run in the first place.\nYou can exterminate them and settle here, or leave and find a new place to start anew.\nNote: Since you start with no resources and the base overrun by insectoids, this is an especially difficult scenario in the early game.</description>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>VFE_PlayerOutpost</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="VFEI.Other.ScenPart_Settlement">
+					<def>ScenPart_Settlement</def>
+				</li>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>4</pawnCount>
+					<pawnChoiceCount>6</pawnChoiceCount>
+				</li>
+				<li Class="VFEI.Other.ScenPart_ArriveAtEdge">
+					<def>ScenPart_PlayerPawnsArriveMethodEdge</def>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Silver</thingDef>
+					<count>260</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MealSurvivalPack</thingDef>
+					<count>60</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineIndustrial</thingDef>
+					<count>30</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>ComponentIndustrial</thingDef>
+					<count>16</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>Steel</thingDef>
+					<count>450</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>A simple mission down to the surface of a long forgotten planet went south. Your base has been overrun by creatures you have not seen before - giant insectoids, emerging in infinite numbers from their hives. Forced to escape, you approach a small outpost crawling with the insectoids that sent you on the run in the first place.
+					
+You can exterminate them and settle here, or leave and find a new place to start anew.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Gun_ChargeRifle</thingDef>
+					<count>2</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Gun_ChargeLance</thingDef>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MeleeWeapon_LongSword</thingDef>
+					<stuff>Plasteel</stuff>
+				</li>
+				<!--<li Class="ScenPart_CreateIncident">
+					<def>CreateIncident</def>
+					<incident>VFEI_FirstInsectoidRaid</incident>
+					<intervalDays>0.5</intervalDays>
+					<visible>true</visible>
+				</li>-->
+			</parts>
+		</scenario>
+	</ScenarioDef>
+</Defs>

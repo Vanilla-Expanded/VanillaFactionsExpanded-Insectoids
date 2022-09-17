@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEI_Mote</defName>
+    <label>mote</label>
+    <description>Don't mind me, i'm useless for you</description>
+    <thingClass>VFEI.VFEI_TunnelingNoHive</thingClass>
+    <graphicData>
+      <texPath>Things/Buildings_Dummy</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>false</selectable>
+    <building>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <deconstructible>false</deconstructible>
+    </building>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>VFEI_TunnelHiveSpawner</defName>
+    <label>tunnel</label>
+    <thingClass>VFEI.BuildingClass.VFEI_TunnelHiveSpawner</thingClass>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <alwaysFlee>true</alwaysFlee>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>VFEI_LargeHive</defName>
+    <label>large hive</label>
+    <description>An enourmous hive of insectoid creatures. If activated, it will spawn additional insect types and hives over time, as well as delicious and valuable insect jelly.</description>
+    <thingClass>Hive</thingClass>
+    <graphicData>
+      <texPath>Things/Building/HiveLarge</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.4</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <receivesSignals>true</receivesSignals>
+    <killedLeavings>
+      <VFEI_RoyalInsectJelly>15</VFEI_RoyalInsectJelly>
+    </killedLeavings>
+    <comps>
+      <li Class="CompProperties_CanBeDormant">
+        <startsDormant>true</startsDormant>
+        <canWakeUpFogged>false</canWakeUpFogged>
+      </li>
+      <li Class="CompProperties_WakeUpDormant" />
+      <li Class="CompProperties_SpawnerPawn">
+        <spawnablePawnKinds>
+          <li>Megaspider</li>
+          <li>VFEI_Insectoid_Megapede</li>
+          <li>VFEI_Insectoid_RoyalMegaspider</li>
+        </spawnablePawnKinds>
+        <lordJob>LordJob_DefendAndExpandHive</lordJob>
+        <spawnSound>Hive_Spawn</spawnSound>
+        <initialPawnsPoints>200</initialPawnsPoints>
+        <maxSpawnedPawnsPoints>500</maxSpawnedPawnsPoints>
+      </li>
+      <li Class="CompProperties_SelfhealHitpoints">
+        <ticksPerHeal>6000</ticksPerHeal>        <!-- 60k ticks = 1 day, 10 hp per day -->
+      </li>
+      <li Class="CompProperties_SpawnerHives" />
+      <li Class="CompProperties_Spawner">
+        <thingToSpawn>VFEI_RoyalInsectJelly</thingToSpawn>
+        <spawnCount>10</spawnCount>
+        <spawnIntervalRange>26000~30000</spawnIntervalRange>
+        <spawnMaxAdjacent>40</spawnMaxAdjacent>
+        <spawnForbidden>true</spawnForbidden>
+        <saveKeysPrefix>royaljelly</saveKeysPrefix>
+      </li>
+      <li Class="CompProperties_Spawner">
+        <thingToSpawn>GlowPod</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>30000~60000</spawnIntervalRange>
+        <spawnMaxAdjacent>1</spawnMaxAdjacent>
+        <saveKeysPrefix>pod</saveKeysPrefix>
+        <inheritFaction>true</inheritFaction>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <heatPerSecond>6</heatPerSecond>
+        <heatPushMaxTemperature>38</heatPushMaxTemperature>
+      </li>
+      <li Class="CompProperties_SpawnerFilth">
+        <filthDef>Filth_Slime</filthDef>
+        <spawnCountOnSpawn>10</spawnCountOnSpawn>
+        <spawnMtbHours>4</spawnMtbHours>
+        <spawnRadius>5</spawnRadius>
+      </li>
+      <li Class="CompProperties_Maintainable">
+        <ticksHealthy>60000</ticksHealthy>
+        <ticksNeedsMaintenance>60000</ticksNeedsMaintenance>
+        <damagePerTickRare>10</damagePerTickRare>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Insectoid Larvae Cocoon -->
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>VFEI_InsectoidLarvaeCocoon</defName>
+    <label>cocoon</label>
+    <description>A larve cocoon of giant insects.</description>
+    <thingClass>VFEI.VFEICocoon</thingClass>
+    <graphicData>
+      <texPath>Things/Building/LarvaCocoon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <pathCost>50</pathCost>
+    <blockWind>true</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+  </ThingDef>
+
+  <!-- Burrows -->
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>VFEI_BurrowSmall</defName>
+    <label>small burrow</label>
+    <description>A burrow leading to a web of insectoid tunnels. It will periodically spawn waves of lower castes of insects until destroyed.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <size>(1,1)</size>
+    <graphicData>
+      <texPath>Things/Building/Burrows/BurrowSmall</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <pathCost>50</pathCost>
+    <blockWind>false</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <comps>
+      <li Class="CompProperties_SpawnerPawn">
+        <spawnablePawnKinds>
+          <li>Megascarab</li>
+          <li>Spelopede</li>
+        </spawnablePawnKinds>
+        <chooseSingleTypeToSpawn>False</chooseSingleTypeToSpawn>
+        <spawnMessageKey>InsectSpawned</spawnMessageKey>
+        <nextSpawnInspectStringKey>InsectsArriveIn</nextSpawnInspectStringKey>
+        <showNextSpawnInInspect>true</showNextSpawnInInspect>
+        <lordJob>LordJob_AssaultColony</lordJob>
+        <pawnSpawnIntervalDays>0.1</pawnSpawnIntervalDays>
+        <shouldJoinParentLord>True</shouldJoinParentLord>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>VFEI_BurrowMedium</defName>
+    <label>medium burrow</label>
+    <description>A burrow leading to a web of insectoid tunnels. It will periodically spawn waves of higher castes of insects until destroyed.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Things/Building/Burrows/BurrowMedium</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>2</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>1500</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <pathCost>50</pathCost>
+    <blockWind>false</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <comps>
+      <li Class="CompProperties_SpawnerPawn">
+        <spawnablePawnKinds>
+          <li>Megaspider</li>
+          <li>VFEI_Insectoid_Megapede</li>
+        </spawnablePawnKinds>
+        <chooseSingleTypeToSpawn>False</chooseSingleTypeToSpawn>
+        <spawnMessageKey>InsectSpawned</spawnMessageKey>
+        <nextSpawnInspectStringKey>InsectsArriveIn</nextSpawnInspectStringKey>
+        <showNextSpawnInInspect>true</showNextSpawnInInspect>
+        <lordJob>LordJob_AssaultColony</lordJob>
+        <pawnSpawnIntervalDays>0.1</pawnSpawnIntervalDays>
+        <shouldJoinParentLord>True</shouldJoinParentLord>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingNaturalBase">
+    <defName>VFEI_BurrowRoyal</defName>
+    <label>royal burrow</label>
+    <description>A burrow leading to a web of insectoid tunnels. It will periodically spawn the highest caste of insects - the royal offspring of the queen until destroyed.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <size>(2,2)</size>
+    <graphicData>
+      <texPath>Things/Building/Burrows/BurrowRoyal</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>2.4</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <pathCost>50</pathCost>
+    <blockWind>false</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <comps>
+      <li Class="CompProperties_SpawnerPawn">
+        <spawnablePawnKinds>
+          <li>VFEI_Insectoid_Gigalocust</li>
+          <li>VFEI_Insectoid_RoyalMegaspider</li>
+        </spawnablePawnKinds>
+        <chooseSingleTypeToSpawn>False</chooseSingleTypeToSpawn>
+        <spawnMessageKey>InsectSpawned</spawnMessageKey>
+        <nextSpawnInspectStringKey>InsectsArriveIn</nextSpawnInspectStringKey>
+        <showNextSpawnInInspect>true</showNextSpawnInInspect>
+        <lordJob>LordJob_AssaultColony</lordJob>
+        <pawnSpawnIntervalDays>0.1</pawnSpawnIntervalDays>
+        <shouldJoinParentLord>True</shouldJoinParentLord>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

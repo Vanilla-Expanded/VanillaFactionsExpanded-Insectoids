@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+<ThingDef ParentName="BaseInsect">
+		<defName>VFEI_VatGrownGigalocust</defName>
+		<label>Vat-grown gigalocust</label>
+		<description>A gigalocust is a genetically-engineered hunter drone the size of an elephant. It can quickly close distances to its enemies, ripping them to shreds with its several sets of ripper-blades and sharp mandibles. Serving as special servants of the insectoid queen, these monstrosities are deadly, fast and nigh indestructible. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.</description>
+		<statBases>
+			<MoveSpeed>4.00</MoveSpeed>
+			<ComfyTemperatureMin>-40</ComfyTemperatureMin>
+			<MarketValue>650</MarketValue>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+		</statBases>
+		<tools>
+			<li>
+				<label>head claw</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>14</power>
+				<cooldownTime>2.6</cooldownTime>
+				<linkedBodyPartsGroup>HeadClaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			
+			<body>BeetleLikeWithClaw</body>
+			<baseHungerRate>0.35</baseHungerRate>
+			<baseBodySize>1.2</baseBodySize>
+			<baseHealthScale>2.6</baseHealthScale>
+			<hasGenders>false</hasGenders>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+
+			<wildness>0.85</wildness>
+			<lifeExpectancy>2</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>EusocialInsectLarva</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectJuvenile</def>
+					<minAge>0.03</minAge>
+				</li>
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_BigInsect_Pain</soundWounded>
+					<soundDeath>Pawn_BigInsect_Death</soundDeath>
+					<soundCall>Pawn_BigInsect_Call</soundCall>
+					<soundAngry>Pawn_BigInsect_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+
+			<li>AnimalInsect</li>
+		</tradeTags>
+		<butcherProducts>
+			<VFEI_RoyalInsectJelly>10</VFEI_RoyalInsectJelly>
+			<VFEI_Chitin>10</VFEI_Chitin>
+		</butcherProducts>
+	</ThingDef>
+
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VFEI_VatGrownGigalocust</defName>
+		<label>Vat-grown gigalocust</label>
+		<race>VFEI_VatGrownGigalocust</race>
+		<combatPower>220</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>0.50</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_VatGrownTitanlocust</texPath>
+					<drawSize>1.2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_Dessicated_VatGrownTitanlocust</texPath>
+					<drawSize>1.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_VatGrownTitanlocust</texPath>
+					<drawSize>2.0</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_Dessicated_VatGrownTitanlocust</texPath>
+					<drawSize>2.0</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_VatGrownTitanlocust</texPath>
+					<drawSize>2.6</drawSize>
+					<shadowData>
+						<volume>(0.5, 0.7, 0.43)</volume>
+						<offset>(0,0,-0.1)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownTitanlocust/VFEI_Dessicated_VatGrownTitanlocust</texPath>
+					<drawSize>2.6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+
+	</PawnKindDef>
+</Defs>

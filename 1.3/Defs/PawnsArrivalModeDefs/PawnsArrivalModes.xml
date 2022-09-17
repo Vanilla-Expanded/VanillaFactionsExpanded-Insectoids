@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnsArrivalModeDef>
+    <defName>VFEI_Tunneling</defName>
+    <workerClass>VFEI.RaidArrivalModes.PawnsArrivalModeWorker_Tunneling</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(0, 0.10)</li>
+        <li>(300, 0.15)</li>
+        <li>(700, 0.30)</li>
+      </points>
+    </selectionWeightCurve>
+    <minTechLevel>Animal</minTechLevel>
+    <textEnemy>Insects of the {1} are tunneling towards you! They will break through in a few seconds and attack!</textEnemy>
+  </PawnsArrivalModeDef>
+
+  <PawnsArrivalModeDef>
+    <defName>VFEI_Burrow</defName>
+    <workerClass>VFEI.RaidArrivalModes.PawnsArrivalModeWorker_Burrow</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(0, 0.10)</li>
+        <li>(300, 0.15)</li>
+        <li>(700, 0.30)</li>
+      </points>
+    </selectionWeightCurve>
+    <minTechLevel>Animal</minTechLevel>
+    <textEnemy>Insects of the {1} are tunneling towards you! They will break through in a few seconds and attack!
+
+It seems their plan is to open up tunnels, allowing larger swarms to crawl through. Destroy their burrows as soon as possible, as they will never stop sending waves of insects.</textEnemy>
+  </PawnsArrivalModeDef>
+
+  <PawnsArrivalModeDef>
+    <defName>VFEI_Meteorite</defName>
+    <workerClass>VFEI.RaidArrivalModes.PawnsArrivalModeWorker_Meteorite</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(0, 0)</li>
+        <li>(400, 0.20)</li>
+        <li>(800, 0.45)</li>
+      </points>
+    </selectionWeightCurve>
+    <minTechLevel>Animal</minTechLevel>
+    <textEnemy>A shower of meteorites is striking the local area. It seems they are infested with hives belonging to {1}! They will attack immediately.</textEnemy>
+  </PawnsArrivalModeDef>
+
+  <PawnsArrivalModeDef>
+    <defName>VFEI_GigalocustSwarm</defName>
+    <workerClass>VFEI.RaidArrivalModes.PawnArrivalModeWorker_GigalocustSwarm</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(500, 0.15)</li>
+        <li>(700, 0.30)</li>
+        <li>(1200, 0.80)</li>
+      </points>
+    </selectionWeightCurve>
+    <minTechLevel>Animal</minTechLevel>
+    <textEnemy>A number of gigalocusts belonging to {1} are landing around your base. Their only intention is to kill and they plan to attack immediately.</textEnemy>
+  </PawnsArrivalModeDef>
+
+</Defs>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+<ThingDef ParentName="BaseInsect">
+		<defName>VFEI_VatGrownMonstrosity</defName>
+		<label>Vat-grown monstrosity</label>
+		<description>A result of a failed experiment, this vat-grown monstrosity is a nigh indestructible insectoid with its entire body consisting of thick chitin and strong muscle, capable of regrowing limbs at a rapid pace. Because of underdeveloped organs, this vat-grown creature is unable to survive longer than a few hours at time, but its speed, strength and agility is enough to put an end to a number of research labs across the outer galaxy rim</description>
+		<statBases>
+			<MoveSpeed>5</MoveSpeed>
+			<ComfyTemperatureMin>-50</ComfyTemperatureMin>
+			<MarketValue>750</MarketValue>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+			
+		</statBases>
+		<tools>
+			<li>
+				<label>head claw</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>2.6</cooldownTime>
+				<linkedBodyPartsGroup>HeadClaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>mandibles</label>
+				<capacities>
+					<li>ToxicBite</li>
+				</capacities>
+				<power>45</power>
+				<cooldownTime>2.6</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<comps>
+			<li Class="VFEI.CompProperties_Regeneration">
+				<rateInTicks>100</rateInTicks>
+				
+			</li>
+			<li Class="VFEI.CompProperties_DieAfterPeriod">
+				<timeToDieInTicks>5000</timeToDieInTicks>
+				<effect>true</effect>
+				<effectFilth>Filth_BloodInsect</effectFilth>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_Untameable">
+				
+			</li>
+		</comps>
+		<race>
+			<intelligence>ToolUser</intelligence>
+			<body>BeetleLikeWithClaw</body>
+			<baseHungerRate>0.30</baseHungerRate>
+			<baseBodySize>1.8</baseBodySize>
+			<baseHealthScale>7</baseHealthScale>
+			<hasGenders>false</hasGenders>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+
+			<wildness>1</wildness>
+			<lifeExpectancy>0.1</lifeExpectancy>
+			<lifeStageAges>
+				
+				<li>
+					<def>EusocialInsectAdult</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_BigInsect_Pain</soundWounded>
+					<soundDeath>Pawn_BigInsect_Death</soundDeath>
+					<soundCall>Pawn_BigInsect_Call</soundCall>
+					<soundAngry>Pawn_BigInsect_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+
+			<li>AnimalInsect</li>
+		</tradeTags>
+		<butcherProducts>
+			<VFEI_RoyalInsectJelly>5</VFEI_RoyalInsectJelly>
+			<VFEI_Chitin>15</VFEI_Chitin>
+		</butcherProducts>
+	</ThingDef>
+
+	<PawnKindDef ParentName="VFEI_InsectKindBase">
+		<defName>VFEI_VatGrownMonstrosity</defName>
+		<label>Vat-grown monstrosity</label>
+		<race>VFEI_VatGrownMonstrosity</race>
+		<combatPower>450</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>0.50</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMonstrosity/VFEI_VatGrownMonstrosity</texPath>
+					<drawSize>3</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownMonstrosity/VFEI_Dessicated_VatGrownMonstrosity</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			
+		</lifeStages>
+
+	</PawnKindDef>
+</Defs>

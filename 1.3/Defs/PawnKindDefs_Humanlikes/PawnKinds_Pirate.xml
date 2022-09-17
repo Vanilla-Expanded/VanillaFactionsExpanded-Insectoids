@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <PawnKindDef ParentName="MercenaryEliteTierBase">
+    <defName>VFEI_RiotUnit</defName>
+    <label>anti-riot unit</label>
+    <labelPlural>anti-riot unit</labelPlural>
+    <defaultFactionType>Pirate</defaultFactionType>
+    <inventoryOptions>
+      <skipChance>0.6</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>MedicineIndustrial</thingDef>
+          <countRange>
+            <min>1</min>
+            <max>2</max>
+          </countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    <combatPower>300</combatPower>
+    <maxGenerationAge>30</maxGenerationAge>
+    <backstoryCryptosleepCommonality>0.25</backstoryCryptosleepCommonality>
+    <gearHealthRange>1~1</gearHealthRange>
+    <apparelRequired>
+      <li>VFE_Apparel_RiotArmor</li>
+      <li>VFE_Apparel_RiotHelmet</li>
+    </apparelRequired>
+    <apparelColor>(58,58,58)</apparelColor>
+    <weaponMoney>2500~4400</weaponMoney>
+    <weaponTags Inherit="False">
+      <li>SimpleGun</li>
+    </weaponTags>
+    <combatEnhancingDrugsChance>0.50</combatEnhancingDrugsChance>
+    <combatEnhancingDrugsCount>1~1</combatEnhancingDrugsCount>
+    <modExtensions Inherit="False">
+      <li Class="VFECore.PawnKindDefExtension">
+        <shieldMoney>
+          <min>150</min>
+          <max>500</max>
+        </shieldMoney>
+        <shieldTags>
+          <li>IndustrialBasic</li>
+        </shieldTags>
+      </li>
+    </modExtensions>
+    <initialResistanceRange>13~21</initialResistanceRange>
+  </PawnKindDef>
+</Defs>

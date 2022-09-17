@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ManeuverDef>
+    <defName>VFEI_ToxicSting</defName>
+    <requiredCapacity>VFEI_ToxicSting</requiredCapacity>
+    <verb>
+      <verbClass>Verb_MeleeAttackDamage</verbClass>
+      <meleeDamageDef>VFEI_ToxicSting</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+
+  <ManeuverDef>
+    <defName>SpittingOnPawn</defName>
+    <requiredCapacity>SpittingOnPawn</requiredCapacity>
+    <verb>
+      <verbClass>Verb_MeleeAttackDamage</verbClass>
+      <impactFleck>AcidCloud</impactFleck>
+      <meleeDamageDef>Burn</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_KickMaterialInEyes_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_KickMaterialInEyes_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_KickMaterialInEyes_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_KickMaterialInEyes_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+</Defs>

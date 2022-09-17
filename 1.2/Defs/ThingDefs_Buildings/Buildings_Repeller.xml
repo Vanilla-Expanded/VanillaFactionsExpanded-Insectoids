@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>VFEI_SonicInfestationRepeller</defName>
+        <label>sonic infestation repeller</label>
+        <description>A large ultratech device capable of emitting a sonic pulse every hour, repelling any insectoid movement underneath. Whilst it significantly removes the infestation risk, it enrages the insectoid empress and can lead to more powerful insectoid herds arriving at the colony.</description>
+        <graphicData>
+            <texPath>Things/Building/InfestationSonicRepeller</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4,4)</drawSize>
+            <shaderType>CutoutComplex</shaderType>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <costList>
+            <Steel>250</Steel>
+            <Plasteel>50</Plasteel>
+            <ComponentSpacer>5</ComponentSpacer>
+        </costList>
+		<rotatable>false</rotatable>
+        <altitudeLayer>Building</altitudeLayer>
+        <neverMultiSelect>true</neverMultiSelect>
+        <uiIconScale>1</uiIconScale>
+		<minifiedDef>MinifiedThing</minifiedDef>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+            <WorkToBuild>950</WorkToBuild>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0.8</Flammability>
+			<Mass>40</Mass>
+			<Beauty>-5</Beauty>
+        </statBases>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+        <size>(3,3)</size>
+        <passability>Impassable</passability>
+        <surfaceType>Item</surfaceType>
+        <tickerType>Rare</tickerType>
+        <thingSetMakerTags Inherit="False">
+            <li>RewardSpecial</li>
+        </thingSetMakerTags>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>1200</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="VFEI.Comps.BuildingComps.CompProperties_Repeller"/>
+        </comps>
+    </ThingDef>
+</Defs>

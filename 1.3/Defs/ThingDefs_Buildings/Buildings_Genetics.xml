@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEI_BioengineeringIncubator</defName>
+    <label>bio-engineering incubator</label>
+    <description>An ultra-tech vat tank connected to advanced life support systems. Often used on urbworlds and rimworlds for less than legal experiments, incubator is capable of mixing genomes and creating genetic modifications in the form of living subjects.</description>
+    <thingClass>InsectoidBioengineering.Building_BioengineeringIncubator</thingClass>
+
+    <graphicData>
+      <texPath>Things/Building/VFEI_BioengineeringIncubator</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5,3.5)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+
+    <neverMultiSelect>true</neverMultiSelect>
+    <uiIconScale>0.5</uiIconScale>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+		<WorkToBuild>800</WorkToBuild>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Flammability>1.0</Flammability>
+		<Mass>50</Mass>
+		<Beauty>-5</Beauty>
+    </statBases>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <tickerType>Rare</tickerType>
+	    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+
+    <size>(3,3)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+
+    <surfaceType>Item</surfaceType>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>1200</basePowerConsumption>
+      </li>
+      <li Class="InsectoidBioengineering.CompProperties_FailureRate">
+        <failureRatePercent>5</failureRatePercent>
+      </li>
+      <li Class="InsectoidBioengineering.CompProperties_IncubationTime">
+        <timeInDays>1</timeInDays>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+
+  </ThingDef>
+</Defs>

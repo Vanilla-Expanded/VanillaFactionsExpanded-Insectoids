@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ============================================================ -->
+  <ThingDef ParentName="BaseInsect">
+    <defName>VFEI_VatgrownBoomtick</defName>
+    <label>Vat-grown boomtick</label>
+    <description>A small genetically-engineered tick carrying a sack of exploding chemicals. Its speed and sharp mandibles are enough to scare off most predators, and the fact that it explodes upon death is a final blow to those not afraid. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.</description>
+    <statBases>
+      <MoveSpeed>3.75</MoveSpeed>
+      <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.72</ArmorRating_Sharp>
+      <ComfyTemperatureMin>0</ComfyTemperatureMin>
+      <MarketValue>100</MarketValue>
+    </statBases>
+    <tools>
+      <li>
+        <label>mandibles</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.1</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <deathActionWorkerClass>VFEI.DeathActionWorker_ExplodeIfIntactSac</deathActionWorkerClass>
+      <body>VFEI_Boomtick</body>
+      <baseBodySize>0.55</baseBodySize>
+      <baseHungerRate>0.7</baseHungerRate>
+      <baseHealthScale>0.95</baseHealthScale>
+      <hasGenders>false</hasGenders>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <foodType>OmnivoreAnimal, AnimalProduct</foodType>
+      <wildness>0.7</wildness>
+	  <trainability>Intermediate</trainability>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.2</manhunterOnTameFailChance>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(2, 1.7)</li>
+          <li>(3, 0.7)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>5</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectLarva</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectJuvenile</def>
+          <minAge>0.05</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectAdult</def>
+          <minAge>0.2</minAge>
+          <soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+          <soundDeath>Pawn_Megascarab_Death</soundDeath>
+          <soundCall>Pawn_Megascarab_Call</soundCall>
+          <soundAngry>Pawn_Megascarab_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <tradeTags>
+      <li>AnimalInsect</li>
+    </tradeTags>
+    <butcherProducts>
+      <VFEI_Chitin>5</VFEI_Chitin>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>VFEI_VatgrownBoomtick</defName>
+    <label>Vat-grown boomtick</label>
+    <race>VFEI_VatgrownBoomtick</race>
+    <combatPower>50</combatPower>
+    <ecoSystemWeight>0.2</ecoSystemWeight>
+    <canArriveManhunter>false</canArriveManhunter>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_VatGrownBoomtick</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_Dessicated_VatGrownBoomtick</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_VatGrownBoomtick</texPath>
+          <drawSize>1.4</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_Dessicated_VatGrownBoomtick</texPath>
+          <drawSize>1.4</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_VatGrownBoomtick</texPath>
+          <drawSize>1.75</drawSize>
+          <shadowData>
+            <volume>(0.2, 0.3, 0.2)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownBoomtick/VFEI_Dessicated_VatGrownBoomtick</texPath>
+          <drawSize>1.75</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>
