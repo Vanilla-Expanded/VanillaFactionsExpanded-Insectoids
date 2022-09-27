@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <WorkGiverDef>
+    <defName>VFEI_InsertFirstGenome</defName>
+    <label>inserting genome in incubator</label>
+    <giverClass>InsectoidBioengineering.WorkGiver_InsertFirstGenome</giverClass>
+    <workType>Hauling</workType>
+    <verb>insert genome in incubator</verb>
+    <gerund>inserting genome in incubator</gerund>
+    <priorityInType>20</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
+ <WorkGiverDef>
+    <defName>VFEI_InsertSecondGenome</defName>
+    <label>inserting genome in incubator</label>
+    <giverClass>InsectoidBioengineering.WorkGiver_InsertSecondGenome</giverClass>
+    <workType>Hauling</workType>
+    <verb>insert genome in incubator</verb>
+    <gerund>inserting genome in incubator</gerund>
+    <priorityInType>20</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
+   <WorkGiverDef>
+    <defName>VFEI_InsertThirdGenome</defName>
+    <label>inserting genome in incubator</label>
+    <giverClass>InsectoidBioengineering.WorkGiver_InsertThirdGenome</giverClass>
+    <workType>Hauling</workType>
+    <verb>insert genome in incubator</verb>
+    <gerund>inserting genome in incubator</gerund>
+    <priorityInType>20</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
+ 
+	
+	
+
+
+
+</Defs>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>VFEI_InsertFirstGenomeJob</defName>
+    <driverClass>InsectoidBioengineering.JobDriver_InsertFirstGenome</driverClass>
+    <reportString>inserting genome.</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>VFEI_InsertSecondGenomeJob</defName>
+    <driverClass>InsectoidBioengineering.JobDriver_InsertSecondGenome</driverClass>
+    <reportString>inserting genome.</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>VFEI_InsertThirdGenomeJob</defName>
+    <driverClass>InsectoidBioengineering.JobDriver_InsertThirdGenome</driverClass>
+    <reportString>inserting genome.</reportString>
+  </JobDef>
+</Defs>

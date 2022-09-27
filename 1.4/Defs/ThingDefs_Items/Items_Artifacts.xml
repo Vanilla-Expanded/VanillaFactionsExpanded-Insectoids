@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Psychic Pacifier -->
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFEI_Artifacts_PsychicPacifier</defName>
+    <label>psychic pacifier</label>
+    <description>One-use artifact that directs psychic pacifying blast towards a character, making them join your faction. There is a large risk of brain damage. It works at long distances, and through walls.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/PsychicPacifier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+    <statBases>
+      <Mass>0.5</Mass>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>650</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <scoreOffset>4</scoreOffset>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <ignoredByNonViolent>false</ignoredByNonViolent>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <tradeNeverStack>true</tradeNeverStack>
+    <smeltable>false</smeltable>
+    <burnableByRecipe>false</burnableByRecipe>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <relicChance>1</relicChance>
+    <verbs>
+      <li>
+        <verbClass>VFEI.Verb_CastHumanEffect</verbClass>
+        <label>psychic animal tamer</label>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>true</targetable>
+        <onlyManualCast>True</onlyManualCast>
+        <range>44.9</range>
+        <warmupTime>0.5</warmupTime>
+        <targetParams>
+          <canTargetHumans>true</canTargetHumans>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetMechs>false</canTargetMechs>
+          <canTargetAnimals>false</canTargetAnimals>
+          <onlyTargetPsychicSensitive>true</onlyTargetPsychicSensitive>
+        </targetParams>
+        <soundCast>PsychicInsanityLanceCast</soundCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>2</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>charge</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+      <li>
+        <compClass>VFEI.CompTargetEffect_Recruit</compClass>
+      </li>
+      <li Class="CompProperties_TargetEffect_BrainDamageChance">
+        <brainDamageChance>0.3</brainDamageChance>
+      </li>
+      <li Class="CompProperties_TargetEffect_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+      <li Class="CompProperties_TargetEffect_GoodwillImpact">
+        <goodwillImpact>-200</goodwillImpact>
+      </li>
+      <li Class="CompProperties_TargetEffect_FleckConnecting">
+        <fleckDef>PsycastPsychicLine</fleckDef>
+      </li>
+      <li Class="CompProperties_Styleable"></li>
+    </comps>
+  </ThingDef>
+
+  <!-- Psychic Animal Tamer -->
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFEI_Artifacts_PsychicAnimalTamer</defName>
+    <label>psychic animal tamer</label>
+    <description>A limited-use psychic animal tamer. It overwhelms the target's mind with terrifying mental persuasion, dropping it into a transcendental state, in which it gets trusting and keen with you. There is a risk of brain damage. It works at long distances, and through walls.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/PsychicAnimalTamer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+    <statBases>
+      <Mass>0.5</Mass>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>650</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <scoreOffset>4</scoreOffset>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <ignoredByNonViolent>false</ignoredByNonViolent>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <tradeNeverStack>true</tradeNeverStack>
+    <smeltable>false</smeltable>
+    <burnableByRecipe>false</burnableByRecipe>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <relicChance>1</relicChance>
+    <verbs>
+      <li>
+        <verbClass>VFEI.Verb_CastAnimalEffect</verbClass>
+        <label>psychic animal tamer</label>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>true</targetable>
+        <onlyManualCast>True</onlyManualCast>
+        <range>44.9</range>
+        <warmupTime>0.5</warmupTime>
+        <targetParams>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetHumans>false</canTargetHumans>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetPsychicSensitive>true</onlyTargetPsychicSensitive>
+        </targetParams>
+        <soundCast>PsychicInsanityLanceCast</soundCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>2</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>charge</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+      <li>
+        <compClass>VFEI.CompTargetEffect_Tame</compClass>
+      </li>
+      <li Class="CompProperties_TargetEffect_BrainDamageChance">
+        <brainDamageChance>0.3</brainDamageChance>
+      </li>
+      <li Class="CompProperties_TargetEffect_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+      </li>
+      <li Class="CompProperties_TargetEffect_FleckConnecting">
+        <fleckDef>PsycastPsychicLine</fleckDef>
+      </li>
+      <li Class="CompProperties_Styleable"></li>
+    </comps>
+  </ThingDef>
+
+  <!-- Archotech Eraser -->
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFEI_Artifacts_ArchotechEraser</defName>
+    <label>archotech eraser</label>
+    <description>One-use artifact that utilises a vanometric core to erase everything in a radius of 10 from existence. Needs to be manually triggered.</description>
+    <graphicData>
+      <texPath>Things/Item/Artifact/ArchotechEraser</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+    <statBases>
+      <Mass>0.5</Mass>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>650</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <scoreOffset>4</scoreOffset>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <ignoredByNonViolent>false</ignoredByNonViolent>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <tradeNeverStack>true</tradeNeverStack>
+    <smeltable>false</smeltable>
+    <burnableByRecipe>false</burnableByRecipe>
+    <drawGUIOverlay>false</drawGUIOverlay>
+    <relicChance>1</relicChance>
+    <verbs>
+      <li>
+        <verbClass>VFEI.Verb_DoEffect</verbClass>
+        <label>archotech eraser</label>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <onlyManualCast>true</onlyManualCast>
+        <soundCast>PsychicShockLanceCast</soundCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>charge</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+      <li>
+        <compClass>VFEI.CompTargetEffect_EraseInRadius</compClass>
+      </li>
+      <li Class="CompProperties_Styleable"></li>
+    </comps>
+  </ThingDef>
+
+  <!-- Archotech Teleporter -->
+  <ThingDef ParentName="ArtifactBase">
+    <defName>VFEI_Artifacts_ArchotechTeleporter</defName>
+    <label>archotech teleporter</label>
+    <description>One-use artifact which allows to transport up to 500 kg of mass from one place to any other place on the planet.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Artifact/ArchotechTeleporter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Archotech</techLevel>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <tradeNeverStack>true</tradeNeverStack>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <Mass>5</Mass>
+      <Flammability>0.4</Flammability>
+      <MarketValue>800</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardSpecial</li>
+    </thingSetMakerTags>
+    <tickerType>Rare</tickerType>
+    <comps>
+      <li Class="VFEI.CompProperties_Teleporter" />
+    </comps>
+  </ThingDef>
+
+</Defs>

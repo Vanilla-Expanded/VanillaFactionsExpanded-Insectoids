@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- ============================================================ -->
+  <ThingDef ParentName="BaseInsect">
+    <defName>VFEI_VatGrownSpiderweaver</defName>
+    <label>Vat-grown spiderweaver</label>
+    <description>A bio-engineered spider insectoid the size of a bear. Designed for production of a beautiful insectoid spidersilk and sometimes employed in combat, its thick chitinous armor makes it hard to kill, whilst it’s sharp mandibles allow it to rip enemies into pieces. It is, however, quite slow in open terrain. A vat-grown creature, it is unable to reproduce, and its lifespan is significantly decreased.</description>
+    <statBases>
+      <MoveSpeed>3</MoveSpeed>
+      <ComfyTemperatureMin>-15</ComfyTemperatureMin>
+      <MarketValue>200</MarketValue>
+      <LeatherAmount>0</LeatherAmount>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+    </statBases>
+    <tools>
+      <li>
+        <label>head claw</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadClaw</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_Shearable">
+        <woolDef>VFEI_Spidersilk</woolDef>
+        <shearIntervalDays>3</shearIntervalDays>
+        <woolAmount>20</woolAmount>
+      </li>
+    </comps>
+    <race>
+      <body>BeetleLikeWithClaw</body>
+      <baseHungerRate>0.35</baseHungerRate>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1.75</baseHealthScale>
+      <hasGenders>false</hasGenders>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <foodType>OmnivoreAnimal, AnimalProduct</foodType>
+      <wildness>0.7</wildness>
+	  <trainability>Intermediate</trainability>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+      <lifeExpectancy>3</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>EusocialInsectLarva</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>EusocialInsectJuvenile</def>
+          <minAge>0.05</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.2</minAge>
+          <soundWounded>Pawn_Spelopede_Pain</soundWounded>
+          <soundDeath>Pawn_Spelopede_Death</soundDeath>
+          <soundCall>Pawn_Spelopede_Call</soundCall>
+          <soundAngry>Pawn_Spelopede_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+    <tradeTags>
+      <li>AnimalInsect</li>
+    </tradeTags>
+    <butcherProducts>
+      <VFEI_Chitin>10</VFEI_Chitin>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>VFEI_VatGrownSpiderweaver</defName>
+    <label>Vat-grown spiderweaver</label>
+    <race>VFEI_VatGrownSpiderweaver</race>
+    <combatPower>100</combatPower>
+    <ecoSystemWeight>0.2</ecoSystemWeight>
+    <canArriveManhunter>false</canArriveManhunter>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_VatGrownSpiderweaver</texPath>
+          <drawSize>1.3</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_Dessicated_VatGrownSpiderweaver</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_VatGrownSpiderweaver</texPath>
+          <drawSize>1.6</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_Dessicated_VatGrownSpiderweaver</texPath>
+          <drawSize>1.6</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_VatGrownSpiderweaver</texPath>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.5, 0.37)</volume>
+            <offset>(0,0,-0.15)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/VatGrown/VFEI_VatGrownSpiderweaver/VFEI_Dessicated_VatGrownSpiderweaver</texPath>
+          <drawSize>1.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>

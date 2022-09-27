@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Vanilla Events Expanded</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/StorytellerDef[defName="VFEI_Empress"]/comps</xpath>
+          <value>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_IceAge</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>40</minDaysPassed>
+              <mtbDays>160</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_GlobalWarming</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>40</minDaysPassed>
+              <mtbDays>160</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_PsychicRain</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>20</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_LongNight</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>160</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_HailStorm</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>20</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_MeteoriteShower</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>25</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_SpaceBattle</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>25</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_Earthquake</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>25</mtbDays>
+            </li>
+            <li Class="StorytellerCompProperties_SingleMTB">
+              <incident>VEE_Drought</incident>
+              <allowedTargetTags>
+                <li>Map_PlayerHome</li>
+              </allowedTargetTags>
+              <minDaysPassed>5</minDaysPassed>
+              <mtbDays>20</mtbDays>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
+

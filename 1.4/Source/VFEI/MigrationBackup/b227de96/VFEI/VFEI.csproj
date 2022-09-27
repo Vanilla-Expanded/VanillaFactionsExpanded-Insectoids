@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73CA4FAA-DFC1-4174-B0F7-A3EC292A035B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VFEI</RootNamespace>
+    <AssemblyName>VFEI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Lib.Harmony.2.2.0\lib\net472\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildingClass\VFEI_TunnelHiveSpawner.cs" />
+    <Compile Include="Comps\BuildingComps\CompProperties_Repeller.cs" />
+    <Compile Include="Comps\BuildingComps\CompRepeller.cs" />
+    <Compile Include="Comps\CompProperties_Armillarix.cs" />
+    <Compile Include="Comps\ItemComps\CompProperties_SoundLoop.cs" />
+    <Compile Include="Comps\ItemComps\CompTargetEffect_EraseInRadius.cs" />
+    <Compile Include="Comps\ItemComps\Verb_CastHumanEffect.cs" />
+    <Compile Include="Comps\ItemComps\Verb_CastAnimalEffect.cs" />
+    <Compile Include="Comps\ItemComps\Verb_DoEffect.cs" />
+    <Compile Include="Comps\VariableHealthComp\VFEI_HediffCompProperties_HealthModifier.cs" />
+    <Compile Include="Comps\VariableHealthComp\VFEI_HediffComp_HealthModifier.cs" />
+    <Compile Include="Events\IncidentWorker_FirstRaid.cs" />
+    <Compile Include="Events\IncidentWorker_GiantInfestation.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_EdgeDefenseNoPawn.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_SettlementNoPawns.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_MannedMortarNoPawns.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_EdgeMannedMortarNoPawns.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_RandomCorpse.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_RandomDamage.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_RandomHives.cs" />
+    <Compile Include="Other\ArchotechShieldBelt.cs" />
+    <Compile Include="Comps\HediffComps\CompProperties\CompProperties_RandomHediffGiver.cs" />
+    <Compile Include="Comps\HediffComps\CompProperties\CompProperties_SpawnJelly.cs" />
+    <Compile Include="Comps\HediffComps\CompRandomHediffGiver.cs" />
+    <Compile Include="Comps\HediffComps\CompSpawnJelly.cs" />
+    <Compile Include="Comps\ItemComps\CompTargetEffect_Recruit.cs" />
+    <Compile Include="Comps\ItemComps\CompTargetEffect_Tame.cs" />
+    <Compile Include="Comps\BuildingComps\CompProperties_SpawnerInsectOnDamaged.cs" />
+    <Compile Include="Comps\BuildingComps\CompSpawnerInsectOnDamaged.cs" />
+    <Compile Include="Comps\PawnComps\CompNoBleedHearthAttack.cs" />
+    <Compile Include="Comps\PawnComps\Properties\CompProperties_NoBleedHearthAttack.cs" />
+    <Compile Include="DeathActionWorkers\DeathActionWorker_ExplodeIfIntactSac.cs" />
+    <Compile Include="DeathActionWorkers\DeathActionWorker_InsectsFlee.cs" />
+    <Compile Include="Events\IncidentWorker_InfestedCrashedShipModule.cs" />
+    <Compile Include="Events\IncidentWorker_InfestedCrashedShipPart.cs" />
+    <Compile Include="Events\IncidentWorker_InfestedPartDropSmall.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_Ibase.cs" />
+    <Compile Include="SymbolResolvers\SymbolResolver_OutdoorLightingIbase.cs" />
+    <Compile Include="HarmonyInit.cs" />
+    <Compile Include="Heddifs\Hediff_JellyWithdraw.cs" />
+    <Compile Include="Other\IngestionOutcomeDoer_Immunity.cs" />
+    <Compile Include="JobStuff\JobGiver_Harvest.cs" />
+    <Compile Include="JobStuff\JobDriver_InsectFlee.cs" />
+    <Compile Include="JobStuff\JobGiver_Mine.cs" />
+    <Compile Include="Comps\PawnComps\CompLarvaeToCocoon.cs" />
+    <Compile Include="Comps\PawnComps\Properties\CompProperties_LarvaeToCocoon.cs" />
+    <Compile Include="Comps\PawnComps\Properties\CompProperties_SpawnLarvae.cs" />
+    <Compile Include="Comps\PawnComps\CompSpawnLarvae.cs" />
+    <Compile Include="Other\CustomBullets.cs" />
+    <Compile Include="Other\Recipe_AddMutationHediff.cs" />
+    <Compile Include="Other\RepellerPlaceWorker.cs" />
+    <Compile Include="Other\ScenPart_ArriveAtEdge.cs" />
+    <Compile Include="Other\ScenPart_Settlement.cs" />
+    <Compile Include="Other\VFEI_Plant_Armillarix.cs" />
+    <Compile Include="Other\VFEI_TunnelingNoHive.cs" />
+    <Compile Include="RaidArrivalModes\PawnArrivalModeWorker_GigalocustSwarm.cs" />
+    <Compile Include="RaidArrivalModes\PawnsArrivalModeWorker_Burrow.cs" />
+    <Compile Include="RaidArrivalModes\PawnsArrivalModeWorker_Meteorite.cs" />
+    <Compile Include="RaidArrivalModes\PawnsArrivalModeWorker_Tunneling.cs" />
+    <Compile Include="RaidStrategyWorkers\RaidStrategyWorker_ImmediateAttackInsect.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Teleporter\Command_LoadTeleporter.cs" />
+    <Compile Include="Teleporter\CompProperties_Teleporter.cs" />
+    <Compile Include="Teleporter\Dialog_LoadTeleporter.cs" />
+    <Compile Include="VFEIDefOf.cs" />
+    <Compile Include="JobStuff\LordJob_InsectDefendChunk.cs" />
+    <Compile Include="Other\Projectile_Psychic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BuildingClass\VFEICocoon.cs" />
+    <Compile Include="WorldGenSteps\WorldGenStep_SetInsectsRelations.cs" />
+    <Compile Include="WorldGenSteps\WorldGenStep_ResetHillinessForISettlement.cs" />
+    <Compile Include="ThoughtWorkers\ThoughtWorker_Sticky.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

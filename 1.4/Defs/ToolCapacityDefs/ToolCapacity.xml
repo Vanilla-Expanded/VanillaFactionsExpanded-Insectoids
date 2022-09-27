@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ToolCapacityDef>
+		<defName>VFEI_ToxicSting</defName>
+		<label>toxic stinging</label>
+	</ToolCapacityDef>
+
+	<ToolCapacityDef>
+		<defName>SpittingOnPawn</defName>
+		<label>spit acid on pawn</label>
+	</ToolCapacityDef>
+</Defs>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorldGenStepDef>
+    <defName>VFEI_ResetHillinessForISettlement</defName>
+    <order>550</order>
+    <worldGenStep Class="VFEI.WorldGenStep_ResetHillinessForISettlement"/>
+  </WorldGenStepDef>
+
+  <WorldGenStepDef>
+    <defName>VFEI_SetInsectsRelations</defName>
+    <order>999</order>
+    <worldGenStep Class="VFEI.WorldGenStep_SetInsectsRelations"/>
+  </WorldGenStepDef>
+
+</Defs>

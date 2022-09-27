@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<BodyPartGroupDef>
+		<defName>VFEI_Sting</defName>
+		<label>stinger</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>VFEI_PincerAttackTool</defName>
+		<label>pincer</label>
+	</BodyPartGroupDef>
+
+</Defs>
