@@ -9,8 +9,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/Interact_PlasmaWeapon</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Interact_PlasmaWeapon</clipPath>
           </li>
         </grains>  
         <volumeRange>
@@ -31,8 +31,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/PlasmaShot_Beam</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/PlasmaShot_Beam</clipPath>
           </li>
         </grains>  
         <volumeRange>
@@ -52,8 +52,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/PlasmaShot_Cutter</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/PlasmaShot_Cutter</clipPath>
           </li>
         </grains>  
         <volumeRange>
@@ -73,8 +73,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/PlasmaShot_Piercer</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/PlasmaShot_Piercer</clipPath>
           </li>
         </grains>  
         <volumeRange>
@@ -94,8 +94,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/PlasmaShot_Scattergun</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/PlasmaShot_Scattergun</clipPath>
           </li>
         </grains>  
         <volumeRange>
@@ -114,8 +114,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Things/Chainsaw_Attack</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Things/Chainsaw_Attack</clipPath>
           </li>
         </grains>  
         <volumeRange>
