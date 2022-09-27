@@ -21,7 +21,6 @@
     </backstoryFilters>
     <factionIconPath>World/WorldObjects/Expanding/VFE_Outpost</factionIconPath>
     <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
-    <geneticVariance>1</geneticVariance>
     <startingResearchTags>
       <li>ClassicStart</li>
       <li>MercenaryStart</li>
