@@ -16,7 +16,7 @@
       <Mass>3</Mass>
       <WorkToMake>48000</WorkToMake>
       <Flammability>0.2</Flammability>
-      <EnergyShieldRechargeRate>4</EnergyShieldRechargeRate>
+      <EnergyShieldRechargeRate>0</EnergyShieldRechargeRate>
       <EnergyShieldEnergyMax>4.5</EnergyShieldEnergyMax>
       <EquipDelay>2</EquipDelay>
     </statBases>
@@ -50,5 +50,11 @@
         <li>BeltDefense</li>
       </tags>
     </apparel>
+    <comps>
+      <li Class="CompProperties_Shield">
+        <compClass>VFEI.CompShieldNoRecharge</compClass>
+      </li>
+    </comps>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
   </ThingDef>
 </Defs>

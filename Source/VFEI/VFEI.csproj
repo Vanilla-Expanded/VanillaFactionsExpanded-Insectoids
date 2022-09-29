@@ -64,6 +64,7 @@
     <Compile Include="Comps\BuildingComps\CompRepeller.cs" />
     <Compile Include="Comps\CompProperties_Armillarix.cs" />
     <Compile Include="Comps\ItemComps\CompProperties_SoundLoop.cs" />
+    <Compile Include="Comps\ItemComps\CompShieldNoRecharge.cs" />
     <Compile Include="Comps\ItemComps\CompTargetEffect_EraseInRadius.cs" />
     <Compile Include="Comps\ItemComps\Verb_CastHumanEffect.cs" />
     <Compile Include="Comps\ItemComps\Verb_CastAnimalEffect.cs" />
