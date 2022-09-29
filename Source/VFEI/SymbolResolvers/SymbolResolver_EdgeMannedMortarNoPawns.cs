@@ -1,7 +1,7 @@
-﻿using RimWorld;
-using RimWorld.BaseGen;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.BaseGen;
 using Verse;
 
 namespace VFEI
@@ -10,14 +10,12 @@ namespace VFEI
     {
         public override bool CanResolve(ResolveParams rp)
         {
-            CellRect cellRect;
-            return base.CanResolve(rp) && this.TryFindRandomInnerRectTouchingEdge(rp.rect, out cellRect);
+            return base.CanResolve(rp) && this.TryFindRandomInnerRectTouchingEdge(rp.rect, out CellRect cellRect);
         }
 
         public override void Resolve(ResolveParams rp)
         {
-            CellRect rect;
-            if (!this.TryFindRandomInnerRectTouchingEdge(rp.rect, out rect))
+            if (!this.TryFindRandomInnerRectTouchingEdge(rp.rect, out CellRect rect))
             {
                 return;
             }

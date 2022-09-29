@@ -1,8 +1,7 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -285,7 +284,7 @@ namespace VFEI
                             Current.Game.CurrentMap = mapParent.Map;
                             CameraJumper.TryHideWorld();
 
-                            Find.Targeter.BeginTargeting(TargetingParameters.ForDropPodsDestination(), (targetInfo) => 
+                            Find.Targeter.BeginTargeting(TargetingParameters.ForDropPodsDestination(), (targetInfo) =>
                             {
                                 teleporterComp.innerContainer.TryDropAll(targetInfo.Cell, mapParent.Map, ThingPlaceMode.Near, null, p => p.Walkable(mapParent.Map));
                             }, actionWhenFinished: () =>

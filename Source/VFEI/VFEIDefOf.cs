@@ -33,7 +33,7 @@ namespace VFEI
         public static ThingDef VFEI_LargeHive;
         public static ThingDef VFEI_BioengineeringIncubator;
         public static ThingDef VFEI_TunnelHiveSpawner;
-        
+
         public static TerrainDef Soil;
 
         public static ThingDef InsectJelly;

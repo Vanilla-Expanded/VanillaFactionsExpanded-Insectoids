@@ -24,6 +24,7 @@ namespace VFEI
                 return (CompProperties_SoundLoop)this.props;
             }
         }
+
         public override void CompTick()
         {
             if (sustainer == null && this.parent.ParentHolder != null && this.parent.ParentHolder is Pawn p)
@@ -35,7 +36,9 @@ namespace VFEI
             else
             {
                 if (!sustainer.Ended)
+                {
                     sustainer.Maintain();
+                }
                 else
                 {
                     Log.Message("Saw regen sustainer ending");

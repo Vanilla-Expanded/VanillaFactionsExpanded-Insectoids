@@ -1,5 +1,5 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
@@ -26,7 +26,10 @@ namespace VFEI.RaidArrivalModes
                         lord.AddPawn(pawns[0]);
                         pawns.RemoveAt(0);
                     }
-                    else break;
+                    else
+                    {
+                        break;
+                    }
                 }
                 SkyfallerMaker.SpawnSkyfaller(VFEIDefOf.VFEI_InsectMeteoriteIncoming, pawnsM, intVec3, map);
             }

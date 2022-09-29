@@ -6,7 +6,7 @@ using Verse;
 
 namespace VFEI
 {
-    class Projectile_Psychic : Projectile
+    internal class Projectile_Psychic : Projectile
     {
         public override void ExposeData()
         {

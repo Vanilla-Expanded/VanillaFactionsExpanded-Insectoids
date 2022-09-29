@@ -1,7 +1,6 @@
-﻿using RimWorld;
-using System.Linq;
+﻿using System.Linq;
+using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace VFEI
 {

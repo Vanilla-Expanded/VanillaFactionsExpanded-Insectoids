@@ -2,7 +2,7 @@
 
 namespace VFEI.Comps.PawnComps.Properties
 {
-    class CompProperties_NoBleedHearthAttack : HediffCompProperties
+    internal class CompProperties_NoBleedHearthAttack : HediffCompProperties
     {
         public CompProperties_NoBleedHearthAttack()
         {

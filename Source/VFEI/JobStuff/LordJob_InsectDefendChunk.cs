@@ -38,6 +38,7 @@ namespace VFEI
                 return false;
             }
         }
+
         public override StateGraph CreateGraph()
         {
             StateGraph stateGraph = new StateGraph();

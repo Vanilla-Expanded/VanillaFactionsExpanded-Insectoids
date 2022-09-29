@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -52,8 +52,8 @@ namespace VFEI
                 {
                     this.lord.ReceiveMemo(MemoDamaged);
                 }
-                float num = (float)this.parent.HitPoints - dinfo.Amount;
-                if ((num < (float)this.parent.MaxHitPoints * 0.98f && dinfo.Instigator != null && dinfo.Instigator.Faction != null) || num < (float)this.parent.MaxHitPoints * 0.9f)
+                float num = parent.HitPoints - dinfo.Amount;
+                if ((num < parent.MaxHitPoints * 0.98f && dinfo.Instigator != null && dinfo.Instigator.Faction != null) || num < parent.MaxHitPoints * 0.9f)
                 {
                     List<Thing> otherChunks = this.parent.Map.listerThings.AllThings.Where(thing => thing.def.defName == "VFEI_InfestedCrashedShipModule" || thing.def.defName == "VFEI_InfestedCrashedShipPart" || thing.def.defName == "VFEI_InfestedShipChunk").ToList();
                     foreach (Thing thing in otherChunks)
@@ -186,7 +186,10 @@ namespace VFEI
                     this.pointsLeft = 0f;
                 }
             }
-            else return;
+            else
+            {
+                return;
+            }
         }
     }
 }

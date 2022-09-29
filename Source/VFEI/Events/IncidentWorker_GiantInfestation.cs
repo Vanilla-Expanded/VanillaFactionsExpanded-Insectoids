@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -10,8 +10,7 @@ namespace VFEI.Events
     {
         public static Thing SpawnTunnels(int hiveCount, Map map, bool spawnAnywhereIfNoGoodCell = false, bool ignoreRoofedRequirement = false, string questTag = null)
         {
-            IntVec3 loc;
-            TryFindCell(out loc, map);
+            TryFindCell(out IntVec3 loc, map);
             Thing thing = GenSpawn.Spawn(ThingMaker.MakeThing(VFEIDefOf.VFEI_TunnelHiveSpawner, null), loc, map, WipeMode.FullRefund);
             QuestUtility.AddQuestTag(thing, questTag);
             for (int i = 0; i < hiveCount - 1; i++)
@@ -41,8 +40,7 @@ namespace VFEI.Events
         protected override bool CanFireNowSub(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            IntVec3 intVec;
-            return base.CanFireNowSub(parms) && HiveUtility.TotalSpawnedHivesCount(map) < 30 && TryFindCell(out intVec, map) && map.listerBuildings.AllBuildingsColonistOfDef(DefDatabase<ThingDef>.GetNamed("VFEI_SonicInfestationRepeller")).ToList().Count == 0;
+            return base.CanFireNowSub(parms) && HiveUtility.TotalSpawnedHivesCount(map) < 30 && TryFindCell(out IntVec3 intVec, map) && map.listerBuildings.AllBuildingsColonistOfDef(DefDatabase<ThingDef>.GetNamed("VFEI_SonicInfestationRepeller")).ToList().Count == 0;
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)

@@ -1,5 +1,5 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace VFEI.Comps.ItemComps
@@ -21,9 +21,7 @@ namespace VFEI.Comps.ItemComps
             for (int i = 0; i < MaxTryNumb; i++)
             {
                 RecipeDef randRecipe = this.Props.allowedRecipeDefs.RandomElement();
-                BodyPartRecord bodyPartRecord;
-                bool isImplant;
-                mutate = ApplyMutation(randRecipe, out bodyPartRecord, out isImplant);
+                mutate = ApplyMutation(randRecipe, out BodyPartRecord bodyPartRecord, out bool isImplant);
                 if (mutate)
                 {
                     if (isImplant || randRecipe.defName == "VFEI_InstallSynapticCerebellum")

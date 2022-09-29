@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -117,7 +117,7 @@ namespace VFEI
                                 foreach (IntVec3 current in scanner.PotentialWorkCellsGlobal(pawn))
                                 {
                                     bool flag = false;
-                                    float num4 = (float)(current - position2).LengthHorizontalSquared;
+                                    float num4 = (current - position2).LengthHorizontalSquared;
                                     float num5 = 0f;
                                     if (prioritized)
                                     {

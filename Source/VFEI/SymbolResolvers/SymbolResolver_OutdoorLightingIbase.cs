@@ -1,6 +1,6 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using RimWorld.BaseGen;
-using System.Collections.Generic;
 using Verse;
 
 namespace VFEI
@@ -9,7 +9,7 @@ namespace VFEI
     {
         private const float Margin = 2f;
 
-        private static List<CompGlower> nearbyGlowers = new List<CompGlower>();
+        private static readonly List<CompGlower> nearbyGlowers = new List<CompGlower>();
 
         public override void Resolve(ResolveParams rp)
         {

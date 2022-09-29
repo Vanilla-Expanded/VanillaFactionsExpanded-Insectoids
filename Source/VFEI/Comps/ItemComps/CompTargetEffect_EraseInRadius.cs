@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace VFEI
@@ -20,7 +20,7 @@ namespace VFEI
                 IEnumerable<Thing> things = t.GetThingList(map);
                 foreach (Thing item in things.ToList())
                 {
-                    if (item is Pawn p) 
+                    if (item is Pawn p)
                     {
                         Notify_KilledPawn(p);
                         p.inventory.DestroyAll();
@@ -29,7 +29,10 @@ namespace VFEI
                         Corpse pCorpse = p.Corpse;
                         pCorpse.Destroy();
                     }
-                    else item.Destroy(DestroyMode.Vanish);
+                    else
+                    {
+                        item.Destroy(DestroyMode.Vanish);
+                    }
                 }
                 if (t.Roofed(map))
                 {

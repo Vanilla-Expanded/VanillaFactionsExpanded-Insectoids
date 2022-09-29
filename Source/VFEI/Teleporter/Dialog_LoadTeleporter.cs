@@ -1,8 +1,8 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -273,11 +273,13 @@ namespace VFEI
                 if (CaravanMassUsage > CaravanMassCapacity && CaravanMassCapacity != 0f)
                 {
                     if (this.CheckForErrors())
+                    {
                         Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("TransportersCaravanWillBeImmobile".Translate(), () =>
                         {
                             this.LoadInstantly();
                             this.Close(false);
                         }));
+                    }
                 }
                 else
                 {

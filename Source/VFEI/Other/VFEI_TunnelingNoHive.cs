@@ -1,5 +1,5 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -10,7 +10,7 @@ namespace VFEI
     {
         public List<ThingDef> filthTypes = new List<ThingDef>();
 
-        private static float FilthSpawnRadius = 3f;
+        private static readonly float FilthSpawnRadius = 3f;
 
         private readonly FloatRange ResultSpawnDelay = new FloatRange(26f, 30f);
 
@@ -48,8 +48,7 @@ namespace VFEI
             {
                 this.ResetStaticData();
                 Vector3 vector = base.Position.ToVector3Shifted();
-                IntVec3 c;
-                if (CellFinder.TryFindRandomReachableCellNear(base.Position, base.Map, FilthSpawnRadius, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c, 999999))
+                if (CellFinder.TryFindRandomReachableCellNear(base.Position, base.Map, FilthSpawnRadius, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out IntVec3 c, 999999))
                 {
                     FilthMaker.TryMakeFilth(c, base.Map, filthTypes.RandomElement<ThingDef>(), 1, FilthSourceFlags.None);
                 }
