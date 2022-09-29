@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
   <ThingCategoryDef>
@@ -27,7 +27,9 @@
     <defName>VFEI_InstallDroneGenome</defName>
     <label>install drone genome</label>
     <description>Install a drone genome.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_DroneGenome</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_DroneGenome</ThingDef>
+    </descriptionHyperlinks>
     <workerClass>VFEI.Other.Recipe_AddMutationHediff</workerClass>
     <jobString>Installing drone genome.</jobString>
     <workAmount>2000</workAmount>
@@ -36,11 +38,19 @@
     <surgerySuccessChanceFactor>10</surgerySuccessChanceFactor>
     <ingredients>
       <li>
-        <filter><thingDefs><li>VFEI_DroneGenome</li></thingDefs></filter>
+        <filter>
+          <thingDefs>
+            <li>VFEI_DroneGenome</li>
+          </thingDefs>
+        </filter>
         <count>1</count>
       </li>
       <li>
-        <filter><categories><li>Medicine</li></categories></filter>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
         <count>2</count>
       </li>
     </ingredients>
@@ -111,7 +121,9 @@
     <defName>VFEI_InsectoidLeg</defName>
     <label>insectoid leg</label>
     <description>A jointed appendage of an insectoid, consisting of several chitin covered segments. Whilst it’s an extremely painful mutation, this leg has much higher resistance to damage.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallInsectoidLeg</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallInsectoidLeg</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -125,7 +137,9 @@
     <defName>VFEI_InstallInsectoidLeg</defName>
     <label>install insectoid leg</label>
     <description>Install an insectoid leg.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_InsectoidLeg</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_InsectoidLeg</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing insectoid leg.</jobString>
     <ingredients>
       <li>
@@ -181,7 +195,9 @@
     <defName>VFEI_InsectoidArm</defName>
     <label>insectoid arm</label>
     <description>A jointed appendage of an insectoid, consisting of several chitin covered segments. Whilst it’s an extremely painful mutation, this arm has much higher resistance to damage.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallInsectoidArm</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallInsectoidArm</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -195,7 +211,9 @@
     <defName>VFEI_InstallInsectoidArm</defName>
     <label>install insectoid arm</label>
     <description>Install an insectoid arm.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_InsectoidArm</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_InsectoidArm</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing insectoid arm.</jobString>
     <ingredients>
       <li>
@@ -252,7 +270,9 @@
     <defName>VFEI_CompoundEye</defName>
     <label>compound eye</label>
     <description>An eye consisting of thousands of individual photoreceptor units, compound eyes have a large field of view and help with detecting fast movement, however its visibility range is significantly reduced. Whilst it’s an extremely painful mutation, this eye has a higher resistance to damage.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallCompoundEye</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallCompoundEye</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -266,7 +286,9 @@
     <defName>VFEI_InstallCompoundEye</defName>
     <label>install compound eye</label>
     <description>Install a compound eye.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_CompoundEye</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_CompoundEye</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing compound eye.</jobString>
     <ingredients>
       <li>
@@ -289,7 +311,7 @@
     <addsHediff>VFEI_CompoundEye</addsHediff>
   </RecipeDef>
 
-    <!-- Mandibles -->
+  <!-- Mandibles -->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>VFEI_Mandibles</defName>
     <label>mandibles</label>
@@ -323,7 +345,9 @@
     <defName>VFEI_Mandibles</defName>
     <label>mandibles</label>
     <description>A pair of appendages situated on the sides of the mouth, Helping to crush and cut the food. Whilst it’s significantly less comfortable than normal jaw, insectoid mandibles significantly increase eating speed.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallMandibles</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallMandibles</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -337,7 +361,9 @@
     <defName>VFEI_InstallMandibles</defName>
     <label>install mandibles</label>
     <description>Install mandibles.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_Mandibles</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_Mandibles</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing mandibles.</jobString>
     <ingredients>
       <li>
@@ -384,7 +410,9 @@
     <defName>VFEI_JellySac</defName>
     <label>jelly sac</label>
     <description>A tube-like organ grown within the body. It allows humans to produce low quantities of insect jelly over time. It’s an extremely painful mutation, in some cases requiring medical enhancement for the person to actually live with it.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallJellySac</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallJellySac</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -394,11 +422,14 @@
     </thingSetMakerTags>
   </ThingDef>
 
-  <RecipeDef ParentName="SurgeryInstallImplantBase"> <!-- SurgeryFlesh -->
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <!-- SurgeryFlesh -->
     <defName>VFEI_InstallJellySac</defName>
     <label>install jelly sac</label>
     <description>Install jelly sac.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_JellySac</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_JellySac</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing jelly sac.</jobString>
     <ingredients>
       <li>
@@ -426,7 +457,9 @@
     <defName>VFEI_InstallWarriorGenome</defName>
     <label>install warrior genome</label>
     <description>Install a warrior genome.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_WarriorGenome</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_WarriorGenome</ThingDef>
+    </descriptionHyperlinks>
     <workerClass>VFEI.Other.Recipe_AddMutationHediff</workerClass>
     <jobString>Installing warrior genome.</jobString>
     <workAmount>2500</workAmount>
@@ -435,11 +468,19 @@
     <surgerySuccessChanceFactor>10</surgerySuccessChanceFactor>
     <ingredients>
       <li>
-        <filter><thingDefs><li>VFEI_WarriorGenome</li></thingDefs></filter>
+        <filter>
+          <thingDefs>
+            <li>VFEI_WarriorGenome</li>
+          </thingDefs>
+        </filter>
         <count>1</count>
       </li>
       <li>
-        <filter><categories><li>Medicine</li></categories></filter>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
         <count>2</count>
       </li>
     </ingredients>
@@ -522,7 +563,9 @@
     <defName>VFEI_VenomGland</defName>
     <label>venom gland</label>
     <description>A sack-like gland tucked under the tongue that secretes acid, liquifying and allowing to safely consume even the most dangerous foods. The overstimulation of this gland enables the user to throw a short range acid spitting attack, effective at going through armor.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallVenomGland</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallVenomGland</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -536,7 +579,9 @@
     <defName>VFEI_InstallVenomGland</defName>
     <label>install venom gland</label>
     <description>Install venom gland.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_VenomGland</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_VenomGland</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing venom gland.</jobString>
     <ingredients>
       <li>
@@ -559,7 +604,7 @@
     <addsHediff>VFEI_VenomGland</addsHediff>
   </RecipeDef>
 
-    <!-- Pneumatic claw -->
+  <!-- Pneumatic claw -->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>VFEI_PneumaticClaw</defName>
     <label>pneumatic claw</label>
@@ -606,7 +651,9 @@
     <defName>VFEI_PneumaticClaw</defName>
     <label>pneumatic claw</label>
     <description>A powerful pneumatic pincer arm, capable of repeatedly exerting great pressure on the target at the cost of refined motor skills.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallPneumaticClaw</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallPneumaticClaw</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -620,7 +667,9 @@
     <defName>VFEI_InstallPneumaticClaw</defName>
     <label>install pneumatic claw</label>
     <description>Install pneumatic claw.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_PneumaticClaw</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_PneumaticClaw</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing pneumatic claw.</jobString>
     <ingredients>
       <li>
@@ -737,7 +786,9 @@
     <defName>VFEI_Antenna</defName>
     <label>antenna</label>
     <description>A slender, mobile sensory organ that serves to compliment vision and locational awareness. A subject with this mutation will no longer suffer from darkness penalties, however sensory overload makes it very difficult to socialize.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallAntenna</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallAntenna</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -751,7 +802,9 @@
     <defName>VFEI_InstallAntenna</defName>
     <label>install antenna</label>
     <description>Install antenna.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_Antenna</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_Antenna</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing antenna.</jobString>
     <ingredients>
       <li>
@@ -793,7 +846,7 @@
         <painOffset>0.0125</painOffset>
         <statOffsets>
           <MaxHitPoints>-5</MaxHitPoints>
-          <HungerRateMultiplier>-0.25</HungerRateMultiplier>
+          <!-- <HungerRateMultiplier>-0.25</HungerRateMultiplier> -->
         </statOffsets>
       </li>
     </stages>
@@ -808,7 +861,9 @@
     <defName>VFEI_PredatorStomach</defName>
     <label>predator stomach</label>
     <description>A highly efficient, although basic stomach alternative. Subjects with this mutation will be able to live longer with less food.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallPredatorStomach</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallPredatorStomach</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -822,7 +877,9 @@
     <defName>VFEI_InstallPredatorStomach</defName>
     <label>install predator stomach</label>
     <description>Install predator stomach.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_PredatorStomach</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_PredatorStomach</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing predator stomach.</jobString>
     <ingredients>
       <li>
@@ -850,7 +907,9 @@
     <defName>VFEI_InstallRoyalGenome</defName>
     <label>install royal genome</label>
     <description>Install a royal genome.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_RoyalGenome</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_RoyalGenome</ThingDef>
+    </descriptionHyperlinks>
     <workerClass>VFEI.Other.Recipe_AddMutationHediff</workerClass>
     <jobString>Installing royal genome.</jobString>
     <workAmount>2500</workAmount>
@@ -859,11 +918,19 @@
     <surgerySuccessChanceFactor>10</surgerySuccessChanceFactor>
     <ingredients>
       <li>
-        <filter><thingDefs><li>VFEI_RoyalGenome</li></thingDefs></filter>
+        <filter>
+          <thingDefs>
+            <li>VFEI_RoyalGenome</li>
+          </thingDefs>
+        </filter>
         <count>1</count>
       </li>
       <li>
-        <filter><categories><li>Medicine</li></categories></filter>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
         <count>2</count>
       </li>
     </ingredients>
@@ -923,7 +990,9 @@
     <defName>VFEI_PheromoneSecretor</defName>
     <label>pheromone secretor</label>
     <description>Insectoid glands that slowly leak colorless, odorless, but sticky pheromone, notable for inducing a mild euphoria in those nearby.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallPheromoneSecretor</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallPheromoneSecretor</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -937,7 +1006,9 @@
     <defName>VFEI_InstallPheromoneSecretor</defName>
     <label>install pheromone secretor</label>
     <description>Install pheromone secretor.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_PheromoneSecretor</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_PheromoneSecretor</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing pheromone secretor.</jobString>
     <ingredients>
       <li>
@@ -959,7 +1030,7 @@
     </appliedOnFixedBodyParts>
     <addsHediff>VFEI_PheromoneSecretor</addsHediff>
   </RecipeDef>
-  
+
   <!-- Ventricular sleeve -->
   <HediffDef ParentName="AddedBodyPartBase">
     <defName>VFEI_VentricularSleeve</defName>
@@ -983,7 +1054,7 @@
       </li>
     </stages>
     <comps>
-      <li Class="VFEI.Comps.PawnComps.Properties.CompProperties_NoBleedHearthAttack"/>
+      <li Class="VFEI.Comps.PawnComps.Properties.CompProperties_NoBleedHearthAttack" />
       <li Class="VFEI.Comps.VariableHealthComp.VFEI_HediffCompProperties_HealthModifier">
         <healthPointToAdd>5</healthPointToAdd>
       </li>
@@ -994,7 +1065,9 @@
     <defName>VFEI_VentricularSleeve</defName>
     <label>ventricular sleeve</label>
     <description>A barely understood heart and artery mutation, causes blood to coagulate into oxygen-rich gel-like material. Upon laceration or even loss of limbs, the gel will cauterize the wound immediately. Unfortunately puts heavy strain on human cardiovascular biology.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallVentricularSleeve</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallVentricularSleeve</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -1008,7 +1081,9 @@
     <defName>VFEI_InstallVentricularSleeve</defName>
     <label>install ventricular sleeve</label>
     <description>Install ventricular sleeve.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_VentricularSleeve</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_VentricularSleeve</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing ventricular sleeve.</jobString>
     <ingredients>
       <li>
@@ -1064,7 +1139,9 @@
     <defName>VFEI_SynapticCerebellum</defName>
     <label>synaptic cerebellum</label>
     <description>An insectoid brain particularly sensitive to residual psychic synapse. A creature with this mutation possesses profound collective thought and psychic sensitivity, however is barely able to form cohesive sentences.</description>
-    <descriptionHyperlinks><RecipeDef>VFEI_InstallSynapticCerebellum</RecipeDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <RecipeDef>VFEI_InstallSynapticCerebellum</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <MarketValue>1200</MarketValue>
       <Mass>0.3</Mass>
@@ -1074,11 +1151,14 @@
     </thingSetMakerTags>
   </ThingDef>
 
-  <RecipeDef ParentName="SurgeryInstallImplantBase"> <!-- SurgeryInstallBodyPartArtificialBase -->
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <!-- SurgeryInstallBodyPartArtificialBase -->
     <defName>VFEI_InstallSynapticCerebellum</defName>
     <label>install synaptic cerebellum</label>
     <description>Install synaptic cerebellum.</description>
-    <descriptionHyperlinks><ThingDef>VFEI_SynapticCerebellum</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>VFEI_SynapticCerebellum</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Installing synaptic cerebellum.</jobString>
     <ingredients>
       <li>
