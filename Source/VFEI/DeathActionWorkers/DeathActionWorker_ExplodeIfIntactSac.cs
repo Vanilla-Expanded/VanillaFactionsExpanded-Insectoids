@@ -1,5 +1,5 @@
-﻿using RimWorld;
-using System.Linq;
+﻿using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace VFEI
@@ -29,7 +29,7 @@ namespace VFEI
                                              select x).FirstOrDefault();
             if (bodyPartRecord != null)
             {
-                GenExplosion.DoExplosion(corpse.Position, corpse.Map, 1.9f, DamageDefOf.Flame, corpse.InnerPawn, -1, -1f, null, null, null, null, null, 0f, 1, false, null, 0f, 1, 0f, false, null, null);
+                GenExplosion.DoExplosion(corpse.Position, corpse.Map, 1.9f, DamageDefOf.Flame, corpse.InnerPawn, -1, -1f, null, null, null, null, null, 0f, 1, null, false, null, 0f, 1, 0f, false, null, null);
             }
         }
     }

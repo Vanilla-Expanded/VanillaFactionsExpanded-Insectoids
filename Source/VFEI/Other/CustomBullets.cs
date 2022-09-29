@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using RimWorld;
 
 namespace VFEI.Other
 {
 	class PlasmapiercerBullet : Projectile
 	{
-		protected override void Impact(Thing hitThing)
+		protected override void Impact(Thing hitThing, bool blockedByShield = false)
 		{
 			Map map = base.Map;
 			base.Impact(hitThing);
@@ -17,7 +16,7 @@ namespace VFEI.Other
 			Find.BattleLog.Add(battleLogEntry_RangedImpact);
 			if (hitThing != null)
 			{
-				DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, (float)base.DamageAmount, base.ArmorPenetration, this.ExactRotation.eulerAngles.y, this.launcher, null, this.equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, this.intendedTarget.Thing);
+				DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, base.DamageAmount, base.ArmorPenetration, this.ExactRotation.eulerAngles.y, this.launcher, null, this.equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, this.intendedTarget.Thing);
 				hitThing.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
 				Pawn pawn = hitThing as Pawn;
 				if (pawn != null && pawn.BodySize <= 1f)
@@ -27,7 +26,7 @@ namespace VFEI.Other
 				}
 				if (pawn != null && pawn.stances != null && pawn.BodySize <= this.def.projectile.StoppingPower + 0.001f)
 				{
-					pawn.stances.StaggerFor(95);
+					pawn.stances.stagger.StaggerFor(95);
 				}
 				if (this.def.projectile.extraDamages == null)
 				{
@@ -50,7 +49,7 @@ namespace VFEI.Other
 			SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map, false));
 			if (base.Position.GetTerrain(map).takeSplashes)
 			{
-				FleckMaker.WaterSplash(this.ExactPosition, map, Mathf.Sqrt((float)base.DamageAmount) * 1f, 4f);
+				FleckMaker.WaterSplash(this.ExactPosition, map, Mathf.Sqrt(base.DamageAmount) * 1f, 4f);
 				return;
 			}
 			FleckMaker.Static(this.ExactPosition, map, FleckDefOf.ShotHit_Dirt, 1f);
@@ -58,9 +57,9 @@ namespace VFEI.Other
 	}
 
 	class PlasmaCutterBullet : Projectile
-    {
-        protected override void Impact(Thing hitThing)
-        {
+	{
+		protected override void Impact(Thing hitThing, bool blockedByShield = false)
+		{
 			Map map = base.Map;
 			base.Impact(hitThing);
 			BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(this.launcher, hitThing, this.intendedTarget.Thing, this.equipmentDef, this.def, this.targetCoverDef);
@@ -73,7 +72,7 @@ namespace VFEI.Other
 				Pawn pawn = hitThing as Pawn;
 				if (pawn != null && pawn.stances != null && pawn.BodySize <= this.def.projectile.StoppingPower + 0.001f)
 				{
-					pawn.stances.StaggerFor(95);
+					pawn.stances.stagger.StaggerFor(95);
 				}
 				if (this.def.projectile.extraDamages == null)
 				{
@@ -96,10 +95,10 @@ namespace VFEI.Other
 			SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map, false));
 			if (base.Position.GetTerrain(map).takeSplashes)
 			{
-				FleckMaker.WaterSplash(this.ExactPosition, map, Mathf.Sqrt((float)base.DamageAmount) * 1f, 4f);
+				FleckMaker.WaterSplash(this.ExactPosition, map, Mathf.Sqrt(base.DamageAmount) * 1f, 4f);
 				return;
 			}
 			FleckMaker.Static(this.ExactPosition, map, FleckDefOf.ShotHit_Dirt, 1f);
 		}
-    }
+	}
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using RimWorld;
 using Verse;
@@ -29,7 +27,7 @@ namespace VFEI
             }
         }
 
-        protected override void Impact(Thing hitThing)
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             if (this.def.projectile.explosionDelay == 0)
             {
@@ -43,7 +41,7 @@ namespace VFEI
 
         protected virtual void Explode()
         {
-            IEnumerable<Thing> list = GenRadial.RadialCellsAround(base.Position, 5, true).SelectMany(c => c.GetThingList(base.Map)).Where(t => t is Pawn);
+            IEnumerable<Pawn> list = GenRadial.RadialCellsAround(base.Position, 5, true).SelectMany(c => c.GetThingList(base.Map)).Where(t => t is Pawn).Cast<Pawn>();
             if (list.Any())
             {
                 foreach (Pawn t in list)
@@ -60,22 +58,29 @@ namespace VFEI
                 effecter.Trigger(new TargetInfo(base.Position, map, false), new TargetInfo(base.Position, map, false));
                 effecter.Cleanup();
             }
-            IntVec3 position = base.Position;
-            Map map2 = map;
-            float explosionRadius = this.def.projectile.explosionRadius;
-            DamageDef damageDef = this.def.projectile.damageDef;
-            Thing launcher = this.launcher;
-            int damageAmount = base.DamageAmount;
-            float armorPenetration = base.ArmorPenetration;
-            SoundDef soundExplode = this.def.projectile.soundExplode;
-            ThingDef equipmentDef = this.equipmentDef;
-            ThingDef def = this.def;
-            Thing thing = this.intendedTarget.Thing;
-            ThingDef postExplosionSpawnThingDef = this.def.projectile.postExplosionSpawnThingDef;
-            float postExplosionSpawnChance = this.def.projectile.postExplosionSpawnChance;
-            int postExplosionSpawnThingCount = this.def.projectile.postExplosionSpawnThingCount;
-            ThingDef preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef;
-            GenExplosion.DoExplosion(position, map2, explosionRadius, damageDef, launcher, damageAmount, armorPenetration, soundExplode, equipmentDef, def, thing, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount, this.def.projectile.applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef, this.def.projectile.preExplosionSpawnChance, this.def.projectile.preExplosionSpawnThingCount, this.def.projectile.explosionChanceToStartFire, this.def.projectile.explosionDamageFalloff);
+
+            var proj = def.projectile;
+            GenExplosion.DoExplosion(Position,
+                                     map,
+                                     proj.explosionRadius,
+                                     proj.damageDef,
+                                     launcher,
+                                     DamageAmount,
+                                     ArmorPenetration,
+                                     proj.soundExplode,
+                                     equipmentDef,
+                                     def,
+                                     intendedTarget.Thing,
+                                     proj.postExplosionSpawnThingDef,
+                                     proj.postExplosionSpawnChance,
+                                     proj.postExplosionSpawnThingCount,
+                                     proj.postExplosionGasType,
+                                     proj.applyDamageToExplosionCellsNeighbors,
+                                     proj.preExplosionSpawnThingDef,
+                                     proj.preExplosionSpawnChance,
+                                     proj.preExplosionSpawnThingCount,
+                                     proj.explosionChanceToStartFire,
+                                     proj.explosionDamageFalloff);
         }
 
         private int ticksToDetonation;

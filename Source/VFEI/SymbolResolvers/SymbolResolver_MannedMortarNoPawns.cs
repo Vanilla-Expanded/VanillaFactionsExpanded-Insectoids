@@ -1,8 +1,8 @@
-﻿using RimWorld;
-using RimWorld.BaseGen;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.BaseGen;
 using UnityEngine;
 using Verse;
 
@@ -49,12 +49,11 @@ namespace VFEI
                             select x).RandomElement<ThingDef>();
             }
             ThingDef thingDef2 = thingDef;
-            IntVec3 intVec;
-            if (!this.TryFindMortarSpawnCell(rp.rect, rot, thingDef2, out intVec))
+            if (!this.TryFindMortarSpawnCell(rp.rect, rot, thingDef2, out IntVec3 intVec))
             {
                 return;
             }
-            ThingDef thingDef3 = TurretGunUtility.TryFindRandomShellDef(thingDef2, false, true, faction2.def.techLevel, false, 250f);
+            ThingDef thingDef3 = TurretGunUtility.TryFindRandomShellDef(thingDef2, false, true, true, faction2.def.techLevel, false, 250f);
             if (thingDef3 != null)
             {
                 ResolveParams resolveParams2 = rp;

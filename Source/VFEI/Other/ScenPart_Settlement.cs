@@ -1,8 +1,8 @@
-﻿using RimWorld;
-using RimWorld.BaseGen;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
+using RimWorld.BaseGen;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -22,15 +22,15 @@ namespace VFEI.Other
 
         private static readonly IntRange MaxDistanceBetweenBatteryAndTransmitter = new IntRange(20, 50);
 
-        private static List<IntVec3> tmpTransmitterCells = new List<IntVec3>();
+        private static readonly List<IntVec3> tmpTransmitterCells = new List<IntVec3>();
 
         private bool hasAtleast1TurretInt;
 
-        private List<IntVec3> tmpCells = new List<IntVec3>();
+        private readonly List<IntVec3> tmpCells = new List<IntVec3>();
 
-        private Dictionary<PowerNet, bool> tmpPowerNetPredicateResults = new Dictionary<PowerNet, bool>();
+        private readonly Dictionary<PowerNet, bool> tmpPowerNetPredicateResults = new Dictionary<PowerNet, bool>();
 
-        private List<Thing> tmpThings = new List<Thing>();
+        private readonly List<Thing> tmpThings = new List<Thing>();
 
         public override void PostMapGenerate(Map map)
         {
@@ -122,17 +122,13 @@ namespace VFEI.Other
                     if (powerNet == null || !this.HasAnyPowerGenerator(powerNet))
                     {
                         map.powerNetManager.UpdatePowerNetsAndConnections_First();
-                        PowerNet powerNet2;
-                        IntVec3 dest;
-                        Building building2;
-                        if (this.TryFindClosestReachableNet(compPowerBattery.parent.Position, (PowerNet x) => this.HasAnyPowerGenerator(x), map, out powerNet2, out dest))
+                        if (this.TryFindClosestReachableNet(compPowerBattery.parent.Position, (PowerNet x) => this.HasAnyPowerGenerator(x), map, out PowerNet powerNet2, out IntVec3 dest))
                         {
                             map.floodFiller.ReconstructLastFloodFillPath(dest, this.tmpCells);
                             if (this.canSpawnPowerGenerators)
                             {
                                 int count = this.tmpCells.Count;
-                                Building building;
-                                if (Rand.Chance(Mathf.InverseLerp((float)MaxDistanceBetweenBatteryAndTransmitter.min, (float)MaxDistanceBetweenBatteryAndTransmitter.max, (float)count)) && this.TrySpawnPowerGeneratorNear(compPowerBattery.parent.Position, map, compPowerBattery.parent.Faction, out building))
+                                if (Rand.Chance(Mathf.InverseLerp(MaxDistanceBetweenBatteryAndTransmitter.min, MaxDistanceBetweenBatteryAndTransmitter.max, count)) && this.TrySpawnPowerGeneratorNear(compPowerBattery.parent.Position, map, compPowerBattery.parent.Faction, out Building building))
                                 {
                                     this.SpawnTransmitters(compPowerBattery.parent.Position, building.Position, map, compPowerBattery.parent.Faction);
                                     powerNet2 = null;
@@ -143,7 +139,7 @@ namespace VFEI.Other
                                 this.SpawnTransmitters(this.tmpCells, map, compPowerBattery.parent.Faction);
                             }
                         }
-                        else if (this.canSpawnPowerGenerators && this.TrySpawnPowerGeneratorNear(compPowerBattery.parent.Position, map, compPowerBattery.parent.Faction, out building2))
+                        else if (this.canSpawnPowerGenerators && this.TrySpawnPowerGeneratorNear(compPowerBattery.parent.Position, map, compPowerBattery.parent.Faction, out Building building2))
                         {
                             this.SpawnTransmitters(compPowerBattery.parent.Position, building2.Position, map, compPowerBattery.parent.Faction);
                         }
@@ -164,9 +160,7 @@ namespace VFEI.Other
                     if (powerNet == null || !this.HasAnyPowerUser(powerNet))
                     {
                         map.powerNetManager.UpdatePowerNetsAndConnections_First();
-                        PowerNet powerNet2;
-                        IntVec3 dest;
-                        if (this.TryFindClosestReachableNet(this.tmpThings[i].Position, (PowerNet x) => this.HasAnyPowerUser(x), map, out powerNet2, out dest))
+                        if (this.TryFindClosestReachableNet(this.tmpThings[i].Position, (PowerNet x) => this.HasAnyPowerUser(x), map, out PowerNet powerNet2, out IntVec3 dest))
                         {
                             map.floodFiller.ReconstructLastFloodFillPath(dest, this.tmpCells);
                             this.SpawnTransmitters(this.tmpCells, map, this.tmpThings[i].Faction);
@@ -194,10 +188,7 @@ namespace VFEI.Other
                     else
                     {
                         map.powerNetManager.UpdatePowerNetsAndConnections_First();
-                        PowerNet powerNet2;
-                        IntVec3 dest;
-                        Building building;
-                        if (this.TryFindClosestReachableNet(powerComp.parent.Position, (PowerNet x) => x.CurrentEnergyGainRate() - powerComp.Props.basePowerConsumption * CompPower.WattsToWattDaysPerTick > 1E-07f, map, out powerNet2, out dest))
+                        if (this.TryFindClosestReachableNet(powerComp.parent.Position, (PowerNet x) => x.CurrentEnergyGainRate() - powerComp.Props.PowerConsumption * CompPower.WattsToWattDaysPerTick > 1E-07f, map, out PowerNet powerNet2, out IntVec3 dest))
                         {
                             map.floodFiller.ReconstructLastFloodFillPath(dest, this.tmpCells);
                             bool flag = false;
@@ -220,7 +211,7 @@ namespace VFEI.Other
                             map.floodFiller.ReconstructLastFloodFillPath(dest, this.tmpCells);
                             this.SpawnTransmitters(this.tmpCells, map, this.tmpThings[i].Faction);
                         }
-                        else if (this.canSpawnBatteries && this.TrySpawnBatteryNear(this.tmpThings[i].Position, map, this.tmpThings[i].Faction, out building))
+                        else if (this.canSpawnBatteries && this.TrySpawnBatteryNear(this.tmpThings[i].Position, map, this.tmpThings[i].Faction, out Building building))
                         {
                             this.SpawnTransmitters(this.tmpThings[i].Position, building.Position, map, this.tmpThings[i].Faction);
                             if (building.GetComp<CompPowerBattery>().StoredEnergy > 0f)
@@ -271,13 +262,13 @@ namespace VFEI.Other
                 return true;
             }
             CompPowerTrader compPowerTrader = thing.TryGetComp<CompPowerTrader>();
-            return compPowerTrader != null && (compPowerTrader.PowerOutput > 0f || (!compPowerTrader.PowerOn && compPowerTrader.Props.basePowerConsumption < 0f));
+            return compPowerTrader != null && (compPowerTrader.PowerOutput > 0f || (!compPowerTrader.PowerOn && compPowerTrader.Props.PowerConsumption < 0f));
         }
 
         private bool IsPowerUser(Thing thing)
         {
             CompPowerTrader compPowerTrader = thing.TryGetComp<CompPowerTrader>();
-            return compPowerTrader != null && (compPowerTrader.PowerOutput < 0f || (!compPowerTrader.PowerOn && compPowerTrader.Props.basePowerConsumption > 0f));
+            return compPowerTrader != null && (compPowerTrader.PowerOutput < 0f || (!compPowerTrader.PowerOn && compPowerTrader.Props.PowerConsumption > 0f));
         }
 
         private void SpawnRoofOver(Thing thing)
@@ -381,8 +372,7 @@ namespace VFEI.Other
                 {
                     return false;
                 }
-                bool flag;
-                if (!this.tmpPowerNetPredicateResults.TryGetValue(powerNet, out flag))
+                if (!this.tmpPowerNetPredicateResults.TryGetValue(powerNet, out bool flag))
                 {
                     flag = predicate(powerNet);
                     this.tmpPowerNetPredicateResults.Add(powerNet, flag);
@@ -454,14 +444,12 @@ namespace VFEI.Other
                 return false;
             }
             IntVec3 position = forThing.Position;
-            Building building;
-            if (this.canSpawnBatteries && Rand.Chance(this.hasAtleast1TurretInt ? 1f : 0.1f) && this.TrySpawnBatteryNear(forThing.Position, map, forThing.Faction, out building))
+            if (this.canSpawnBatteries && Rand.Chance(this.hasAtleast1TurretInt ? 1f : 0.1f) && this.TrySpawnBatteryNear(forThing.Position, map, forThing.Faction, out Building building))
             {
                 this.SpawnTransmitters(forThing.Position, building.Position, map, forThing.Faction);
                 position = building.Position;
             }
-            Building building2;
-            if (this.TrySpawnPowerGeneratorNear(position, map, forThing.Faction, out building2))
+            if (this.TrySpawnPowerGeneratorNear(position, map, forThing.Faction, out Building building2))
             {
                 this.SpawnTransmitters(position, building2.Position, map, forThing.Faction);
                 return true;
@@ -483,7 +471,6 @@ namespace VFEI.Other
         private bool TrySpawnPowerTransmittingBuildingNear(IntVec3 position, Map map, Faction faction, ThingDef def, out Building newBuilding, Predicate<IntVec3> extraValidator = null)
         {
             TraverseParms traverseParams = TraverseParms.For(TraverseMode.PassAllDestroyableThings, Danger.Deadly, false);
-            IntVec3 loc;
             if (RCellFinder.TryFindRandomCellNearWith(position, delegate (IntVec3 x)
             {
                 if (!x.Standable(map) || x.Roofed(map) || !this.EverPossibleToTransmitPowerAt(x, map))
@@ -502,7 +489,7 @@ namespace VFEI.Other
                     }
                 }
                 return extraValidator == null || extraValidator(x);
-            }, map, out loc, 8, 2147483647))
+            }, map, out IntVec3 loc, 8, 2147483647))
             {
                 newBuilding = (Building)GenSpawn.Spawn(ThingMaker.MakeThing(def, null), loc, map, Rot4.North, WipeMode.Vanish, false);
                 newBuilding.SetFaction(faction, null);
