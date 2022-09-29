@@ -1,19 +1,18 @@
 ﻿
 
-using Verse;
-using RimWorld;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
-using System;
 using System.Diagnostics;
+using System.Linq;
+using RimWorld;
+using UnityEngine;
+using Verse;
 using Verse.Sound;
 
 namespace InsectoidBioengineering
 {
     public class Building_BioengineeringIncubator : Building, IThingHolder
     {
-        private System.Random rand = new System.Random();
+        private readonly System.Random rand = new System.Random();
         public ThingOwner innerContainerFirstGenome = null;
         public ThingOwner innerContainerSecondGenome = null;
         public ThingOwner innerContainerThirdGenome = null;
@@ -303,14 +302,16 @@ namespace InsectoidBioengineering
                         {
                             Messages.Message("VFEI_WaitTillJobsEnd".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
                         }
-                        else if (!compPowerTrader.PowerOn) {
+                        else if (!compPowerTrader.PowerOn)
+                        {
                             Messages.Message("VFEI_NotPowered".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
 
                         }
-                        else 
+                        else
                         {
                             string IncubationResult = this.BeginIncubation(theFirstGenomeIAmGoingToInsert, theSecondGenomeIAmGoingToInsert, theThirdGenomeIAmGoingToInsert);
-                            if (IncubationResult != "") {
+                            if (IncubationResult != "")
+                            {
                                 this.innerContainerFirstGenome.ClearAndDestroyContents();
                                 this.innerContainerSecondGenome.ClearAndDestroyContents();
                                 this.innerContainerThirdGenome.ClearAndDestroyContents();
@@ -319,12 +320,13 @@ namespace InsectoidBioengineering
                                 theThirdGenomeIAmGoingToInsert = "None";
                                 StartInsertionJobs = false;
                             }
-                            else {
+                            else
+                            {
                                 Messages.Message("VFEI_CombinationNoResults".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
 
                             }
 
-                            
+
                         }
 
                     };
@@ -335,11 +337,12 @@ namespace InsectoidBioengineering
                 }
 
             }
-           
+
 
         }
 
-        public string BeginIncubation(string genome1, string genome2, string genome3) {
+        public string BeginIncubation(string genome1, string genome2, string genome3)
+        {
 
             IncubatingInsectoid = "";
             foreach (InsectoidCombinationDef element in DefDatabase<InsectoidCombinationDef>.AllDefs)
@@ -353,7 +356,7 @@ namespace InsectoidBioengineering
 
                     )
                 {
-                    
+
                     IncubatingInsectoid = element.result.RandomElement();
                     IsHostile = element.isHostile;
                     if (IncubatingInsectoid != "")
@@ -361,10 +364,10 @@ namespace InsectoidBioengineering
                         IncubationStarted = true;
                         return IncubatingInsectoid;
                     }
-                    
-                    
+
+
                 }
-               
+
 
             }
             return "";
@@ -374,7 +377,8 @@ namespace InsectoidBioengineering
         public override void TickRare()
         {
             base.TickRare();
-            if (IncubationStarted) {
+            if (IncubationStarted)
+            {
                 IncubationCounter++;
                 if (!compPowerTrader.PowerOn)
                 {
@@ -383,9 +387,10 @@ namespace InsectoidBioengineering
                     IncubationStarted = false;
                 }
 
-                if (IncubationCounter > rareTicksPerDay*this.TryGetComp<CompIncubationTime>().Props.timeInDays)
+                if (IncubationCounter > rareTicksPerDay * this.TryGetComp<CompIncubationTime>().Props.timeInDays)
                 {
-                    if (rand.NextDouble() < (this.TryGetComp<CompFailureRate>().Props.failureRatePercent / 100)){
+                    if (rand.NextDouble() < (this.TryGetComp<CompFailureRate>().Props.failureRatePercent / 100))
+                    {
 
                         List<IncubationFailureDef> tempFailureList = DefDatabase<IncubationFailureDef>.AllDefs.ToList();
                         IncubationFailureDef incubationFailure = tempFailureList.RandomElementByWeight(((IncubationFailureDef s) => s.commonality));
@@ -394,44 +399,41 @@ namespace InsectoidBioengineering
                             Messages.Message("VFEI_FailureDeath".Translate(), this, MessageTypeDefOf.NegativeEvent, true);
                             for (int i = 0; i < 20; i++)
                             {
-                                IntVec3 c;
-                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
+                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out IntVec3 c);
                                 FilthMaker.TryMakeFilth(c, this.Map, ThingDef.Named("Filth_BloodInsect"));
                             }
                             SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(this.Position, this.Map, false));
-                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, false, 1f, false, true, true, false, false);
+                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, 1f, false, false, true, true, false, false);
                             Pawn pawn = PawnGenerator.GeneratePawn(request);
                             GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(this.Position, this.Map, 3, null), this.Map, WipeMode.Vanish);
                             pawn.Kill(null);
 
-                    }
-                        else if (incubationFailure.creatureDef!=null)
+                        }
+                        else if (incubationFailure.creatureDef != null)
                         {
                             Messages.Message("VFEI_FailureMonstrosity".Translate(), this, MessageTypeDefOf.NegativeEvent, true);
-                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(incubationFailure.creatureDef), Faction.OfInsects, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, false, 1f, false, true, true, false, false);
+                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(incubationFailure.creatureDef), Faction.OfInsects, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, 1f, false, false, true, true, false, false);
                             Pawn pawn = PawnGenerator.GeneratePawn(request);
                             GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(this.Position, this.Map, 3, null), this.Map, WipeMode.Vanish);
                             SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(this.Position, this.Map, false));
                             for (int i = 0; i < 20; i++)
                             {
-                                IntVec3 c;
-                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
+                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out IntVec3 c);
                                 FilthMaker.TryMakeFilth(c, this.Map, ThingDefOf.Filth_AmnioticFluid);
 
                             }
                             pawn.mindState.mentalStateHandler.TryStartMentalState(DefDatabase<MentalStateDef>.GetNamed("ManhunterPermanent", true), null, true, false, null, false);
                         }
-                        else if (incubationFailure.hediffDef!= null)
+                        else if (incubationFailure.hediffDef != null)
                         {
                             Messages.Message("VFEI_FailureDisease".Translate(), this, MessageTypeDefOf.NegativeEvent, true);
-                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, false, 1f, false, true, true, false, false);
+                            PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), Faction.OfPlayer, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, 1f, false, false, true, true, false, false);
                             Pawn pawn = PawnGenerator.GeneratePawn(request);
                             GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(this.Position, this.Map, 3, null), this.Map, WipeMode.Vanish);
                             SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(this.Position, this.Map, false));
                             for (int i = 0; i < 20; i++)
                             {
-                                IntVec3 c;
-                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
+                                CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out IntVec3 c);
                                 FilthMaker.TryMakeFilth(c, this.Map, ThingDefOf.Filth_AmnioticFluid);
 
                             }
@@ -441,7 +443,8 @@ namespace InsectoidBioengineering
 
 
                     }
-                    else {
+                    else
+                    {
                         Faction faction;
                         if (IsHostile)
                         {
@@ -451,14 +454,13 @@ namespace InsectoidBioengineering
                         {
                             faction = Faction.OfPlayer;
                         }
-                        PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), faction, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, false, 1f, false, true, true, false, false);
+                        PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDef.Named(IncubatingInsectoid), faction, PawnGenerationContext.NonPlayer, -1, true, true, false, false, false, 1f, false, false, true, true, false, false);
                         Pawn pawn = PawnGenerator.GeneratePawn(request);
                         GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(this.Position, this.Map, 3, null), this.Map, WipeMode.Vanish);
                         SoundDefOf.Hive_Spawn.PlayOneShot(new TargetInfo(this.Position, this.Map, false));
                         for (int i = 0; i < 20; i++)
                         {
-                            IntVec3 c;
-                            CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out c);
+                            CellFinder.TryFindRandomReachableCellNear(this.Position, this.Map, 2, TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.Deadly, false), null, null, out IntVec3 c);
                             FilthMaker.TryMakeFilth(c, this.Map, ThingDefOf.Filth_AmnioticFluid);
 
                         }
@@ -468,7 +470,7 @@ namespace InsectoidBioengineering
                         }
 
                     }
-                    
+
                     IncubationCounter = 0;
                     IncubationStarted = false;
 
@@ -487,7 +489,7 @@ namespace InsectoidBioengineering
 
             if (IncubationStarted)
             {
-                incubationTxt = "\n"+"VFEI_IncubationInProgress".Translate(ThingDef.Named(this.IncubatingInsectoid).LabelCap) + ((int)(ticksPerDay*this.TryGetComp<CompIncubationTime>().Props.timeInDays) -(IncubationCounter*250)).ToStringTicksToPeriod(true, false, true, true);
+                incubationTxt = "\n" + "VFEI_IncubationInProgress".Translate(ThingDef.Named(this.IncubatingInsectoid).LabelCap) + ((int)(ticksPerDay * this.TryGetComp<CompIncubationTime>().Props.timeInDays) - (IncubationCounter * 250)).ToStringTicksToPeriod(true, false, true, true);
             }
 
 
