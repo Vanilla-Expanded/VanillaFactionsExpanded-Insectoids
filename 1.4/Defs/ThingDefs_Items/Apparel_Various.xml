@@ -209,7 +209,6 @@
       <Mass>2.2</Mass>
     </statBases>
     <comps>
-      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
       <li Class="VFECore.CompProperties_Shield">
         <shieldTags>
           <li>IndustrialBasic</li>
