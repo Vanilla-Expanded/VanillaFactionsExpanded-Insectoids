@@ -52,6 +52,7 @@
       <baseHealthScale>3.5</baseHealthScale>
       <foodType>OmnivoreAnimal, AnimalProduct</foodType>
       <hasGenders>false</hasGenders>
+	  <herdMigrationAllowed>false</herdMigrationAllowed>
 	  <trainability>Intermediate</trainability>
       <useMeatFrom>Megaspider</useMeatFrom>
       <wildness>0.7</wildness>

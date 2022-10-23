@@ -48,6 +48,7 @@
       <useMeatFrom>Megaspider</useMeatFrom>
       <foodType>OmnivoreAnimal, AnimalProduct</foodType>
       <wildness>0.6</wildness>
+	  <herdMigrationAllowed>false</herdMigrationAllowed>
 	  <trainability>None</trainability>
       <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
       <manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>

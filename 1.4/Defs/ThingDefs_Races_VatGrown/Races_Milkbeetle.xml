@@ -55,6 +55,7 @@
       <hasGenders>false</hasGenders>
 	  <trainability>None</trainability>
 	  <roamMtbDays>5</roamMtbDays>
+	  <herdMigrationAllowed>false</herdMigrationAllowed>
       <useMeatFrom>Megaspider</useMeatFrom>
       <wildness>0.55</wildness>
       <lifeExpectancy>3</lifeExpectancy>
