@@ -50,7 +50,7 @@
     <verbs>
       <li>
         <verbClass>VFEI.Verb_CastHumanEffect</verbClass>
-        <label>psychic animal tamer</label>
+        <label>psychic pacifier</label>
         <hasStandardCommand>true</hasStandardCommand>
         <targetable>true</targetable>
         <onlyManualCast>True</onlyManualCast>
