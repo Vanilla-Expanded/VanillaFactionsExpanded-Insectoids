@@ -135,6 +135,7 @@
     <Compile Include="Teleporter\Command_LoadTeleporter.cs" />
     <Compile Include="Teleporter\CompProperties_Teleporter.cs" />
     <Compile Include="Teleporter\Dialog_LoadTeleporter.cs" />
+    <Compile Include="ThinkNodes\ThinkNode_TitanBeetle.cs" />
     <Compile Include="VFEIDefOf.cs" />
     <Compile Include="JobStuff\LordJob_InsectDefendChunk.cs" />
     <Compile Include="Other\Projectile_Psychic.cs" />

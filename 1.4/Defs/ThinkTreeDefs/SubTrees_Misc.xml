@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThinkTreeDef>
+		<defName>VFEI_TitanBeetleMiningBehaviour</defName>
+		<insertTag>Animal_PreWander</insertTag>
+		<insertPriority>100</insertPriority>
+		<thinkRoot Class="ThinkNode_Priority">
+			<subNodes>
+				<li Class="VFEI.ThinkNode_TitanBeetle">
+					<subNodes>
+
+						<!-- Trained behavior: Mine-->
+						<li Class="ThinkNode_ChancePerHour_Constant">
+							<mtbHours>0.75</mtbHours>
+							<subNodes>
+								<li Class="ThinkNode_ConditionalTrainableCompleted">
+									<trainable>Obedience</trainable>
+									<subNodes>
+
+										<li Class="ThinkNode_Tagger">
+											<tagToGive>TrainedAnimalBehavior</tagToGive>
+											<subNodes>
+												<li Class="VFEI.JobGiver_Mine" />
+											</subNodes>
+										</li>
+									</subNodes>
+								</li>
+							</subNodes>
+
+						</li>
+
+					</subNodes>
+				</li>
+			</subNodes>
+		</thinkRoot>
+	</ThinkTreeDef>
+
+
+
+
+</Defs>

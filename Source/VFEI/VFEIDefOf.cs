@@ -19,6 +19,8 @@ namespace VFEI
         public static ThingDef VFEI_BurrowMedium;
         public static ThingDef VFEI_BurrowRoyal;
 
+        public static ThingDef VFEI_VatGrownTitanbeetle;
+
         public static PawnKindDef VFEI_Insectoid_Queen;
         public static PawnKindDef VFEI_Insectoid_RoyalMegaspider;
         public static PawnKindDef VFEI_Insectoid_Gigalocust;
