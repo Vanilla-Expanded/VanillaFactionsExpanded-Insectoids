@@ -63,6 +63,8 @@
     <Compile Include="Comps\BuildingComps\CompProperties_Repeller.cs" />
     <Compile Include="Comps\BuildingComps\CompRepeller.cs" />
     <Compile Include="Comps\CompProperties_Armillarix.cs" />
+    <Compile Include="Comps\HediffComps\CompProperties\HediffCompProperties_RecreationOnDeath.cs" />
+    <Compile Include="Comps\HediffComps\HediffComp_RecreationOnDeath.cs" />
     <Compile Include="Comps\ItemComps\CompProperties_SoundLoop.cs" />
     <Compile Include="Comps\ItemComps\CompShieldNoRecharge.cs" />
     <Compile Include="Comps\ItemComps\CompTargetEffect_EraseInRadius.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Events\IncidentWorker_FirstRaid.cs" />
     <Compile Include="Events\IncidentWorker_GiantInfestation.cs" />
     <Compile Include="Harmony\BodyPartDef_GetMaxHealth_Postfix.cs" />
+    <Compile Include="Harmony\FoodUtility_NutritionForEater.cs" />
     <Compile Include="Harmony\GenStep_Settlement_ScatterAt_Prefix.cs" />
     <Compile Include="Harmony\IncidentWorker_Raid_TryExecuteWorker_Prefix.cs" />
     <Compile Include="Harmony\LordToil_HiveRelated_FindClosestHive_Postfix.cs" />

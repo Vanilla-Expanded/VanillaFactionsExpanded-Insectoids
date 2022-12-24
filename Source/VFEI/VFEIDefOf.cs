@@ -53,6 +53,8 @@ namespace VFEI
         public static HediffDef HeartAttack;
         public static HediffDef VFEI_TempDown;
         public static HediffDef VFEI_SynapticCerebellum;
+        public static HediffDef VFEI_PredatorStomach;
+        public static HediffDef VFEI_AdrenalSecretor;
 
         public static JobDef InsectFlee;
 
