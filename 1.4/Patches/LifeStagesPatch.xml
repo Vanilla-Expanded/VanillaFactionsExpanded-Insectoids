@@ -11,7 +11,7 @@
 		<xpath>/Defs/LifeStageDef[defName = "EusocialInsectAdult"]</xpath>
 		<value>
 			<shearable>true</shearable>
-			<milkable>true</milkable>
+			
 		</value>
 	</Operation>
 </Patch>
