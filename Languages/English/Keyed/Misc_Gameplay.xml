@@ -71,6 +71,7 @@
     <InsectsArriveIn>{0} arrive in {1}</InsectsArriveIn>
 	<CocoonInsectSpawnIn>{0} before insect spawn.</CocoonInsectSpawnIn>
 	<NoMoreSpawningAllowed>Queen is resting.</NoMoreSpawningAllowed>
+	<VFEI_Egg>Egg production</VFEI_Egg>
 
 	<!-- Artifact letter -->
 	<LetterLabelForcedTame>{1_kind} has been force-tamed</LetterLabelForcedTame>

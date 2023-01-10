@@ -43,13 +43,14 @@
 				<milkAmount>12</milkAmount>
 				<milkFemaleOnly>false</milkFemaleOnly>
 			</li>
-			<li Class="CompProperties_EggLayer">
-				<eggFertilizedDef>VFEI_EggInsectoidUnfertilized</eggFertilizedDef>
-				<eggUnfertilizedDef>VFEI_EggInsectoidUnfertilized</eggUnfertilizedDef>
-				<eggFertilizationCountMax>1</eggFertilizationCountMax>
-				<eggLayIntervalDays>1</eggLayIntervalDays>				
-				<eggCountRange>10~30</eggCountRange>
+			<li Class="AnimalBehaviours.CompProperties_AnimalProduct">
+				<resourceDef>VFEI_EggInsectoidUnfertilized</resourceDef>
+				<gatheringIntervalDays>1</gatheringIntervalDays>
+				<resourceAmount>30</resourceAmount>
+				<customResourceString>VFEI_Egg</customResourceString>
+
 			</li>
+			
 		</comps>
 		<race>
 			<body>BeetleLikeWithClaw</body>
