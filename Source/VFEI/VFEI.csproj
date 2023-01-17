@@ -88,6 +88,7 @@
     <Compile Include="Harmony\FoodUtility_ThoughtsFromIngesting_Postfix.cs" />
     <Compile Include="Harmony\SettlementDefeatUtility_IsDefeated_Postfix.cs" />
     <Compile Include="Harmony\ThoughtWorker_Dark_CurrentStateInternal_Postfix.cs" />
+    <Compile Include="Heddifs\HediffCompTurnToInsect.cs" />
     <Compile Include="SymbolResolvers\SymbolResolver_EdgeDefenseNoPawn.cs" />
     <Compile Include="SymbolResolvers\SymbolResolver_SettlementNoPawns.cs" />
     <Compile Include="SymbolResolvers\SymbolResolver_MannedMortarNoPawns.cs" />

@@ -2,71 +2,78 @@
 <Defs>
 
   <!-- Royal Insect Jelly -->
-  <ThingDef ParentName="OrganicProductBase"> <!-- ThingSetMakers_MapGen disallows normal jelly in prison cell stockpiles -->
+  <ThingDef ParentName="DrugBase">
     <defName>VFEI_RoyalInsectJelly</defName>
     <label>royal insect jelly</label>
-    <description>A golden, shining jelly used by the queens to create new spawn. It is smooth, rich, and brings joy to those who consume it. Because of its unique biological composition, it boosts immunity and nourishes anyone who has a taste of it.</description>
+    <description>A golden, shining jelly used by the queens to create new spawn. It is smooth, rich,
+      and brings joy to those who consume it. Because of its unique biological composition, it
+      boosts immunity and nourishes anyone who has a taste of it.</description>
+    <descriptionHyperlinks>
+      <HediffDef>VFEI_RoyalJellyHigh</HediffDef>
+      <HediffDef>VFEI_RoyalJellyTolerance</HediffDef>
+      <HediffDef>VFEI_RoyalJellyAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <tickerType>Rare</tickerType>
     <graphicData>
       <texPath>Things/Item/VFEI_RoyalJelly</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
-    <socialPropernessMatters>true</socialPropernessMatters>
     <statBases>
-      <MarketValue>10.0</MarketValue>
+      <MarketValue>10</MarketValue>
       <Mass>0.025</Mass>
       <Nutrition>0.05</Nutrition>
       <FoodPoisonChanceFixedHuman>0.01</FoodPoisonChanceFixedHuman>
     </statBases>
+    <techLevel>Neolithic</techLevel>
     <ingestible>
-      <preferability>NeverForNutrition</preferability>
-      <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
-      <chairSearchRadius>8</chairSearchRadius>
+      <tasteThought>VFEI_AteRoyalJelly</tasteThought>
       <foodType>AnimalProduct</foodType>
+      <joyKind>Gluttonous</joyKind>
       <joy>0.16</joy>
       <nurseable>true</nurseable>
-      <tasteThought>VFEI_AteRoyalJelly</tasteThought>
-      <joyKind>Gluttonous</joyKind>
+      <drugCategory>Medical</drugCategory>
       <ingestEffect>EatVegetarian</ingestEffect>
       <ingestSound>Meal_Eat</ingestSound>
-      <drugCategory>Medical</drugCategory>
+      <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>VFEI_RoyalJellyHigh</hediffDef>
-          <severity>1.00</severity>
+          <severity>0.50</severity>
           <toleranceChemical>VFEI_RoyalJellyChemical</toleranceChemical>
         </li>
         <li Class="IngestionOutcomeDoer_GiveHediff">
           <hediffDef>VFEI_RoyalJellyTolerance</hediffDef>
           <severity>0.032</severity>
           <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
         </li>
         <li Class="VFEI.IngestionOutcomeDoer_Immunity">
           <percent>5</percent>
         </li>
       </outcomeDoers>
     </ingestible>
-		<comps>
-			<li Class="CompProperties_Rottable">
-				<daysToRotStart>30</daysToRotStart>
-				<rotDestroys>true</rotDestroys>
-			</li>
-			<li Class="CompProperties_Drug">
-				<chemical>VFEI_RoyalJellyChemical</chemical>
-				<addictiveness>0.035</addictiveness>
-        <existingAddictionSeverityOffset>0.2</existingAddictionSeverityOffset>
-				<needLevelOffset>0.9</needLevelOffset>
-        <isCombatEnhancingDrug>false</isCombatEnhancingDrug>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Drug">
+        <chemical>VFEI_RoyalJellyChemical</chemical>
+        <addictiveness>0.035</addictiveness>
         <minToleranceToAddict>0.15</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.2</existingAddictionSeverityOffset>
+        <needLevelOffset>0.9</needLevelOffset>
         <listOrder>100</listOrder>
-			</li>
-		</comps>
+      </li>
+    </comps>
     <thingCategories>
       <li>AnimalProductRaw</li>
     </thingCategories>
   </ThingDef>
-  
-    <!-- Insect Milk -->
-    <ThingDef ParentName="OrganicProductBase">
+
+  <!-- Insect Milk -->
+  <ThingDef ParentName="OrganicProductBase">
     <defName>VFEI_InsectMilk</defName>
     <label>insect milk</label>
     <description>Milk from an insectoid.</description>
@@ -97,18 +104,19 @@
     </thingCategories>
   </ThingDef>
 
-    <!-- Insect Eggs -->
-    <ThingDef ParentName="EggUnfertBase">
+  <!-- Insect Eggs -->
+  <ThingDef ParentName="EggUnfertBase">
     <defName>VFEI_EggInsectoidUnfertilized</defName>
     <label>insectoid egg (unfert.)</label>
-    <description>An unfertilized insectoid egg. It can be eaten raw, but it's much, much better cooked.</description>
+    <description>An unfertilized insectoid egg. It can be eaten raw, but it's much, much better
+      cooked.</description>
     <graphicData>
-		<texPath>Things/Item/VFEI_EggInsectoid</texPath>
-     
+      <texPath>Things/Item/VFEI_EggInsectoid</texPath>
+
     </graphicData>
     <statBases>
       <MarketValue>3.0</MarketValue>
-	  <Nutrition>0.05</Nutrition>
+      <Nutrition>0.05</Nutrition>
     </statBases>
   </ThingDef>
 

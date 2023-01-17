@@ -64,5 +64,7 @@ namespace VFEI
         public static ThingDef VFEI_Mote;
 
         public static RaidStrategyDef VFEI_ImmediateAttackInsect;
+
+        public static NeedDef VFEI_Chemical_RoyalJelly;
     }
 }

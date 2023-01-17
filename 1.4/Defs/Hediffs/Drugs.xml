@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <!-- Royal Jelly addiction -->
   <HediffDef>
-    <defName>VFEI_RoyalJellyHigh</defName>    
+    <defName>VFEI_RoyalJellyHigh</defName>
     <label>high on royal jelly</label>
-    <labelNoun>a royal jelly high</labelNoun>
     <description>High on royal jelly</description>
     <hediffClass>Hediff_High</hediffClass>
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
@@ -21,22 +19,23 @@
     <stages>
       <li>
         <capMods>
-            <li>
-              <capacity>Moving</capacity>
-              <offset>0.05</offset>
-            </li>
-          </capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
       </li>
     </stages>
   </HediffDef>
-  
+
   <ChemicalDef>
     <defName>VFEI_RoyalJellyChemical</defName>
     <label>royal jelly</label>
     <addictionHediff>VFEI_RoyalJellyAddiction</addictionHediff>
     <toleranceHediff>VFEI_RoyalJellyTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
   </ChemicalDef>
-  
+
   <NeedDef ParentName="DrugAddictionNeedBase">
     <defName>VFEI_Chemical_RoyalJelly</defName>
     <needClass>Need_Chemical</needClass>
@@ -58,21 +57,22 @@
       </li>
     </comps>
   </HediffDef>
-  
+
   <HediffDef ParentName="AddictionBase">
     <defName>VFEI_RoyalJellyAddiction</defName>
-    <hediffClass>VFEI.Hediff_JellyWithdraw</hediffClass>
     <label>royal jelly addiction</label>
     <description>Royal jelly addiction</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
     <causesNeed>VFEI_Chemical_RoyalJelly</causesNeed>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.08</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
       </li>
+      <li Class="VFEI.HediffCompProperties_TurnToInsect"/>
     </comps>
     <stages>
-      <li>
-      </li>
+      <li />
       <li>
         <label>withdrawal</label>
         <lifeThreatening>true</lifeThreatening>
