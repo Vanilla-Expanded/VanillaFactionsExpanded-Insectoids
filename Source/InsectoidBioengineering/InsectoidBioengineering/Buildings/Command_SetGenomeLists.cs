@@ -8,6 +8,59 @@ using System.Linq;
 
 namespace InsectoidBioengineering
 {
+
+    public static class GenomeListClass
+    {
+        public static void Process(Building_BioengineeringIncubator building, int slot)
+        {
+            List<FloatMenuOption> list = new List<FloatMenuOption>();
+
+            list.Add(new FloatMenuOption("VFEI_None".Translate(), delegate
+            {
+                switch (slot)
+                {
+                    case 1:
+                        building.theFirstGenomeIAmGoingToInsert = "None";
+                        break;
+                    case 2:
+                        building.theSecondGenomeIAmGoingToInsert = "None";
+                        break;
+                    case 3:
+                        building.theThirdGenomeIAmGoingToInsert = "None";
+                        break;
+                }
+            }, MenuOptionPriority.Default, null, null, 29f, null, null));
+
+            foreach (AcceptedGenomesDef element in DefDatabase<AcceptedGenomesDef>.AllDefs)
+            {
+                foreach (string thisGenome in element.genomes.Where(thisGenome => thisGenome != "None"))
+                {
+                    list.Add(new FloatMenuOption(thisGenome.Translate(), delegate
+                    {
+                        switch (slot)
+                        {
+                            case 1:
+                                building.ExpectingFirstGenome = true;
+                                building.theFirstGenomeIAmGoingToInsert = thisGenome;
+                                break;
+                            case 2:
+                                building.ExpectingSecondGenome = true;
+                                building.theSecondGenomeIAmGoingToInsert = thisGenome;
+                                break;
+                            case 3:
+                                building.ExpectingThirdGenome = true;
+                                building.theThirdGenomeIAmGoingToInsert = thisGenome;
+                                break;
+                        }
+                    }, MenuOptionPriority.Default, null, null, 29f, null, null));
+                }
+            }
+            Find.WindowStack.Add(new FloatMenu(list));
+        }
+
+    }
+
+
     [StaticConstructorOnStartup]
     public class Command_SetFirstGenomeList : Command
     {
@@ -35,7 +88,7 @@ namespace InsectoidBioengineering
                                 defaultLabel = (genome + "_InsertFirstGenome").Translate();
                             }
                         }
-                    }                   
+                    }
                 }
             }
         }
@@ -43,63 +96,18 @@ namespace InsectoidBioengineering
         public override void ProcessInput(Event ev)
         {
             base.ProcessInput(ev);
-            List<FloatMenuOption> list = new List<FloatMenuOption>();
+            GenomeListClass.Process(this.building, 1);
 
-            list.Add(new FloatMenuOption("VFEI_None".Translate(), delegate
-            {
-                Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-                building.theFirstGenomeIAmGoingToInsert = "None";
-
-            }, MenuOptionPriority.Default, null, null, 29f, null, null));
-
-            foreach (AcceptedGenomesDef element in DefDatabase<AcceptedGenomesDef>.AllDefs)
-            {
-                foreach (string thisGenome in element.genomes.Where(thisGenome => thisGenome != "None"))
-                {
-
-                    list.Add(new FloatMenuOption(thisGenome.Translate(), delegate
-                    {
-                        genome = map.listerThings.ThingsOfDef(DefDatabase<ThingDef>.GetNamed(thisGenome, true));
-                        if (genome.Count > 0)
-                        {
-
-                            this.TryInsertFirstGenome();
-                        }
-                        else
-                        {
-                            Messages.Message("VFEI_NoGeneticMaterial".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
-                        }
-
-                    }, MenuOptionPriority.Default, null, null, 29f, null, null));
-
-                }
-            }         
-            Find.WindowStack.Add(new FloatMenu(list));
         }
-
-        private void TryInsertFirstGenome()
-        {
-            Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-            //Log.Message("Inserting "+ genome.RandomElement().def.defName +" on "+building.ToString());
-            building.ExpectingFirstGenome = true;
-            building.theFirstGenomeIAmGoingToInsert = genome.RandomElement().def.defName;
-        }
-
-
-
-
     }
 
 
     [StaticConstructorOnStartup]
     public class Command_SetSecondGenomeList : Command
     {
-
         public Map map;
         public Building_BioengineeringIncubator building;
         public List<Thing> genome;
-
-
 
         public Command_SetSecondGenomeList()
         {
@@ -126,49 +134,8 @@ namespace InsectoidBioengineering
         public override void ProcessInput(Event ev)
         {
             base.ProcessInput(ev);
-            List<FloatMenuOption> list = new List<FloatMenuOption>();
-
-            list.Add(new FloatMenuOption("VFEI_None".Translate(), delegate
-            {
-                Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-                building.theSecondGenomeIAmGoingToInsert = "None";
-
-            }, MenuOptionPriority.Default, null, null, 29f, null, null));
-            foreach (AcceptedGenomesDef element in DefDatabase<AcceptedGenomesDef>.AllDefs)
-            {
-                foreach (string thisGenome in element.genomes.Where(thisGenome => thisGenome != "None"))
-                {
-
-                    list.Add(new FloatMenuOption(thisGenome.Translate(), delegate
-                    {
-                        genome = map.listerThings.ThingsOfDef(DefDatabase<ThingDef>.GetNamed(thisGenome, true));
-                        if (genome.Count > 0)
-                        {
-
-                            this.TryInsertSecondGenome();
-                        }
-                        else
-                        {
-                            Messages.Message("VFEI_NoGeneticMaterial".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
-                        }
-
-                    }, MenuOptionPriority.Default, null, null, 29f, null, null));
-
-                }
-            }
-            Find.WindowStack.Add(new FloatMenu(list));
+            GenomeListClass.Process(this.building, 2);
         }
-
-        private void TryInsertSecondGenome()
-        {
-            Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-            //Log.Message("Inserting " + genome.RandomElement().def.defName + " on " + building.ToString());
-            building.ExpectingSecondGenome = true;
-            building.theSecondGenomeIAmGoingToInsert = genome.RandomElement().def.defName;
-        }
-
-
-
 
     }
 
@@ -207,46 +174,9 @@ namespace InsectoidBioengineering
         public override void ProcessInput(Event ev)
         {
             base.ProcessInput(ev);
-            List<FloatMenuOption> list = new List<FloatMenuOption>();
-
-            list.Add(new FloatMenuOption("VFEI_None".Translate(), delegate
-            {
-                Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-                building.theThirdGenomeIAmGoingToInsert = "None";
-
-            }, MenuOptionPriority.Default, null, null, 29f, null, null));
-            foreach (AcceptedGenomesDef element in DefDatabase<AcceptedGenomesDef>.AllDefs)
-            {
-                foreach (string thisGenome in element.genomes.Where(thisGenome => thisGenome != "None"))
-                {
-
-                    list.Add(new FloatMenuOption(thisGenome.Translate(), delegate
-                    {
-                        genome = map.listerThings.ThingsOfDef(DefDatabase<ThingDef>.GetNamed(thisGenome, true));
-                        if (genome.Count > 0)
-                        {
-
-                            this.TryInsertThirdGenome();
-                        }
-                        else
-                        {
-                            Messages.Message("VFEI_NoGeneticMaterial".Translate(), null, MessageTypeDefOf.NegativeEvent, true);
-                        }
-
-                    }, MenuOptionPriority.Default, null, null, 29f, null, null));
-
-                }
-            }
-            Find.WindowStack.Add(new FloatMenu(list));
+            GenomeListClass.Process(this.building, 3);
         }
 
-        private void TryInsertThirdGenome()
-        {
-            Building_BioengineeringIncubator building = (Building_BioengineeringIncubator)this.building;
-            //Log.Message("Inserting " + genome.RandomElement().def.defName + " on " + building.ToString());
-            building.ExpectingThirdGenome = true;
-            building.theThirdGenomeIAmGoingToInsert = genome.RandomElement().def.defName;
-        }
 
 
 

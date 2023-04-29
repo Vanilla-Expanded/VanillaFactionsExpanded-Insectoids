@@ -330,15 +330,72 @@ namespace InsectoidBioengineering
                         }
 
                     };
-                    RB_Gizmo_Engage.defaultLabel = "VFEI_Engage".Translate();
-                    RB_Gizmo_Engage.defaultDesc = "VFEI_EngageDesc".Translate();
+
                     RB_Gizmo_Engage.icon = ContentFinder<Texture2D>.Get("UI/VFEI_Engage", true);
+                    bool anyMatching = false;
+                    InsectoidCombinationDef matchingCombo = null;
+
+                    foreach (var combo in DefDatabase<InsectoidCombinationDef>.AllDefs)
+                    {
+                        if (MatchingCombination(combo, this.theFirstGenomeIAmGoingToInsert, this.theSecondGenomeIAmGoingToInsert, this.theThirdGenomeIAmGoingToInsert))
+                        {
+                            if (anyMatching)
+                            {
+                                matchingCombo = null;
+                                break;
+                            }
+
+                            matchingCombo = combo;
+                            anyMatching = true;
+                        }
+                    }
+
+                    if (!anyMatching)
+                    {
+                        RB_Gizmo_Engage.disabled = true;
+                        RB_Gizmo_Engage.disabledReason = "VFEI_CombinationNoResults".Translate();
+                    }
+                    else
+                    {
+                        if (matchingCombo != null && matchingCombo.result.Count == 1)
+                        {
+                            var pawnKind = PawnKindDef.Named(matchingCombo.result[0]);
+                            RB_Gizmo_Engage.defaultLabel = "BenLubarsVanillaExpandedPatches_EngageBioIncubator".Translate(pawnKind.race.label.Named("NAME"));
+                            RB_Gizmo_Engage.defaultDesc = "BenLubarsVanillaExpandedPatches_EngageBioIncubatorDesc".Translate(pawnKind.race.label.Named("NAME"), pawnKind.race.description.Named("DESC"));
+                            RB_Gizmo_Engage.icon = pawnKind.race.uiIcon;
+                        }
+
+                        if (this.ExpectingFirstGenome || this.ExpectingSecondGenome || this.ExpectingThirdGenome)
+                        {
+                            RB_Gizmo_Engage.disabled = true;
+                            RB_Gizmo_Engage.disabledReason = "VFEI_WaitTillJobsEnd".Translate();
+                        }
+                    }
+
+                    if (!this.compPowerTrader.PowerOn)
+                    {
+                        RB_Gizmo_Engage.disabled = true;
+                        RB_Gizmo_Engage.disabledReason = "VFEI_NotPowered".Translate();
+                    }
+                    //RB_Gizmo_Engage.defaultLabel = "VFEI_Engage".Translate();
+                    //RB_Gizmo_Engage.defaultDesc = "VFEI_EngageDesc".Translate();
+                    
                     yield return RB_Gizmo_Engage;
                 }
 
             }
 
 
+        }
+
+        public static bool MatchingCombination(InsectoidCombinationDef combo, string genome1, string genome2, string genome3)
+        {
+            return match(0, 1, 2) || match(0, 2, 1) || match(1, 0, 2) || match(1, 2, 0) || match(2, 0, 1) || match(2, 1, 0);
+
+            bool match(int first, int second, int third)
+            {
+                return genome1 == combo.genomes[first] && genome2 == combo.genomes[second] && genome3 == combo.genomes[third];
+            }
         }
 
         public string BeginIncubation(string genome1, string genome2, string genome3)

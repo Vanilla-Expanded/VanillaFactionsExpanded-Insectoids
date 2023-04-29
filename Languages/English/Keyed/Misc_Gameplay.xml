@@ -48,6 +48,9 @@
 	<VFEI_IncubationInProgress>Incubation in Progress. A {0} will be produced in: </VFEI_IncubationInProgress>
 	
 	<VFEI_CombinationNoResults>This combination produces no results</VFEI_CombinationNoResults>
+	
+	<BenLubarsVanillaExpandedPatches_EngageBioIncubator>Begin Incubating {NAME}</BenLubarsVanillaExpandedPatches_EngageBioIncubator>
+	<BenLubarsVanillaExpandedPatches_EngageBioIncubatorDesc>Activate Incubator to create a new {NAME} from the inserted genetic materials.\n\n{DESC}</BenLubarsVanillaExpandedPatches_EngageBioIncubatorDesc>
 
 	<!-- Incubator: Power related -->
 	<VFEI_NotPowered>The bio-engineering incubator is not powered right now</VFEI_NotPowered>

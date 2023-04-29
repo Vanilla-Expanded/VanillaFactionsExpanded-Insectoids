@@ -86,6 +86,7 @@
     <Compile Include="Harmony\IncidentWorker_Infestation_TryExecuteWorker_Prefix.cs" />
     <Compile Include="Harmony\JobGiver_MaintainHives_TryGiveJob_Patch.cs" />
     <Compile Include="Harmony\FoodUtility_ThoughtsFromIngesting_Postfix.cs" />
+    <Compile Include="Harmony\PawnAddictionHediffsGenerator_ApplyAddiction.cs" />
     <Compile Include="Harmony\SettlementDefeatUtility_IsDefeated_Postfix.cs" />
     <Compile Include="Harmony\ThoughtWorker_Dark_CurrentStateInternal_Postfix.cs" />
     <Compile Include="Heddifs\HediffCompTurnToInsect.cs" />
@@ -150,11 +151,10 @@
     <Compile Include="ThoughtWorkers\ThoughtWorker_Sticky.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" ExcludeAssets="runtime">
+    <PackageReference Include="Lib.Harmony">
       <Version>2.2.2</Version>
-      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	   <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
