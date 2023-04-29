@@ -126,7 +126,7 @@
 	<TeleportDestroyed>The teleportation has failed and contents is lost</TeleportDestroyed>
 
 	<!-- Settings strings -->
-	<SName>Vanilla Factions Expanded - Insectoids</SName>
+	<SName>VFE - Insectoids</SName>
 	<PusleLabel>Repeller pulse effect:</PusleLabel>
 	<PusleTooltip>Enable or disable the pulse effect from the sonic infestation repeller.</PusleTooltip>
 
