@@ -11,7 +11,7 @@ namespace VFEI
         {
             foreach (WorldObject item in Find.World.worldObjects.AllWorldObjects)
             {
-                if (item.Faction.def.defName == "VFEI_Insect" && Find.WorldGrid[item.Tile].hilliness != Hilliness.Mountainous)
+                if (item.Faction?.def?.defName == "VFEI_Insect" && Find.WorldGrid[item.Tile].hilliness != Hilliness.Mountainous)
                 {
                     Find.WorldGrid[item.Tile].hilliness = Hilliness.Mountainous;
                 }
