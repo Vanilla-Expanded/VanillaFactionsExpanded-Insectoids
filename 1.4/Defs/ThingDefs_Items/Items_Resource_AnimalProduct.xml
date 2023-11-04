@@ -5,9 +5,7 @@
   <ThingDef ParentName="DrugBase">
     <defName>VFEI_RoyalInsectJelly</defName>
     <label>royal insect jelly</label>
-    <description>A golden, shining jelly used by the queens to create new spawn. It is smooth, rich,
-      and brings joy to those who consume it. Because of its unique biological composition, it
-      boosts immunity and nourishes anyone who has a taste of it.</description>
+    <description>A golden, shining jelly used by the queens to create new spawn. It is smooth, rich, and brings joy to those who consume it. Because of its unique biological composition, it boosts immunity and nourishes anyone who has a taste of it.</description>
     <descriptionHyperlinks>
       <HediffDef>VFEI_RoyalJellyHigh</HediffDef>
       <HediffDef>VFEI_RoyalJellyTolerance</HediffDef>
