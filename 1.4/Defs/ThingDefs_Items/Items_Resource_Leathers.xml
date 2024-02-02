@@ -20,8 +20,8 @@
       <StuffPower_Armor_Heat>0.27</StuffPower_Armor_Heat>
       <StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
       <StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-      <SharpDamageMultiplier>1.0</SharpDamageMultiplier>
-      <BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+      <SharpDamageMultiplier>0.9</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
     </statBases>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -32,7 +32,7 @@
       <categories>
         <li>Metallic</li>
       </categories>
-      <commonality>0.90</commonality>
+      <commonality>0.30</commonality>
       <constructEffect>ConstructMetal</constructEffect>
       <color>(98,73,62)</color>
       <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
@@ -41,7 +41,7 @@
       <statFactors>
         <MaxHitPoints>2</MaxHitPoints>
         <Flammability>0.1</Flammability>
-		<MeleeWeapon_CooldownMultiplier>0.6</MeleeWeapon_CooldownMultiplier>
+		<MeleeWeapon_CooldownMultiplier>0.85</MeleeWeapon_CooldownMultiplier>
 		<Beauty>0.5</Beauty>
       </statFactors>
     </stuffProps>
